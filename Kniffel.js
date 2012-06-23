@@ -14,6 +14,7 @@ var wurf = function() {
 var changeText = function(id, text){
 	document.getElementById(id).innerHTML=text;
 };
+
 var one = function() {
      var suchZahl = 1;
      var zahl = 0;
@@ -24,6 +25,7 @@ var one = function() {
 	 }
 	 changeText("p1_one", zahl);
 };
+
 var two = function() {
      var suchZahl = 2;
      var zahl = 0;
@@ -166,5 +168,18 @@ var kleines = function() {
        
 };
 var groses = function() {
-       
+	var new_ad = allDice.slice();
+	new_ad.sort();
+	if(new_ad[0] > 2){return}
+	else {
+			for(i=new_ad[0];i<new_ad[0]+3;i++)
+				{
+					if(new_ad[i]+1 !== new_ad[i+1])
+					{
+						changeText("p1_groses", "Nope");
+					}
+				}
+		changeText("p1_groses", 40);
+		}
+	 
 };

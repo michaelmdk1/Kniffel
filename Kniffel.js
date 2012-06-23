@@ -15,7 +15,12 @@ var changeText = function(id, text){
 	document.getElementById(id).innerHTML=text;
 };
 var one = function() {
-       
+     var einser = 0
+     for(i=0;i<5;i++){
+		if(allDice[i]===1){
+			einser += 1;
+		}
+	 changeText("p1_one", einser);
 };
 var two = function() {
        

@@ -14,3 +14,42 @@ var wurf = function() {
 var changeText = function(id, text){
 	document.getElementById(id).innerHTML=text;
 };
+var one = function() {
+       
+};
+var two = function() {
+       
+};
+var three = function() {
+       
+};
+var four = function() {
+       
+};
+var five = function() {
+       
+};
+var six = function() {
+       
+};
+var dreierp = function() {
+       
+};
+var viererp = function() {
+       
+};
+var fullHouse = function() {
+       
+};
+var kniffel = function() {
+       
+};
+var chance = function() {
+       
+};
+var kleines = function() {
+       
+};
+var groses = function() {
+       
+};

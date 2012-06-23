@@ -15,27 +15,64 @@ var changeText = function(id, text){
 	document.getElementById(id).innerHTML=text;
 };
 var one = function() {
-     var einser = 0
+     var suchZahl = 1;
+     var zahl = 0;
      for(i=0;i<5;i++){
-		if(allDice[i]===1){
-			einser += 1;
+		if(allDice[i]===suchZahl){
+			zahl += suchZahl;
 		}
-	 changeText("p1_one", einser);
+	 }
+	 changeText("p1_one", zahl);
 };
 var two = function() {
-       
+     var suchZahl = 2;
+     var zahl = 0;
+     for(i=0;i<5;i++){
+		if(allDice[i]===suchZahl){
+			zahl += suchZahl;
+		}
+	 }
+	 changeText("p1_two", zahl);    
 };
 var three = function() {
-       
+     var suchZahl = 3;
+     var zahl = 0;
+     for(i=0;i<5;i++){
+		if(allDice[i]===suchZahl){
+			zahl += suchZahl;
+		}
+	 }
+	 changeText("p1_three", zahl);       
 };
 var four = function() {
-       
+     var suchZahl = 4;
+     var zahl = 0;
+     for(i=0;i<5;i++){
+		if(allDice[i]===suchZahl){
+			zahl += suchZahl;
+		}
+	 }
+	 changeText("p1_four", zahl);       
 };
 var five = function() {
-       
+     var suchZahl = 5;
+     var zahl = 0;
+     for(i=0;i<5;i++){
+		if(allDice[i]===suchZahl){
+			zahl += suchZahl;
+		}
+	 }
+	 changeText("p1_five", zahl);       
 };
 var six = function() {
-       
+     var suchZahl = 6;
+     var zahl = 0;
+     for(i=0;i<5;i++){
+		if(allDice[i]===suchZahl){
+			zahl += suchZahl;
+		}
+	 }
+	 changeText("p1_six", zahl);       
 };
 var dreierp = function() {
        
@@ -47,7 +84,13 @@ var fullHouse = function() {
        
 };
 var kniffel = function() {
-       
+     for(i=1;i<7;i++){
+		 for(j=0;j<5;j++){
+			 if(i===allDice[j]){
+				   changeText("p1_kniffel", 50);
+			 }
+		 }
+	 }
 };
 var chance = function() {
        

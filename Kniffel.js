@@ -75,21 +75,88 @@ var six = function() {
 	 changeText("p1_six", zahl);       
 };
 var dreierp = function() {
-       
-};
-var viererp = function() {
-       
-};
-var fullHouse = function() {
-       
-};
-var kniffel = function() {
+     var augen = 0
+     var zaehler = 0
      for(i=1;i<7;i++){
 		 for(j=0;j<5;j++){
 			 if(i===allDice[j]){
-				   changeText("p1_kniffel", 50);
+				   zaehler++; 
 			 }
 		 }
+		 if(zaehler>=3){
+		  for(k=0;k<5;k++){
+			  augen += allDice[k];
+		  }
+		  changeText("p1_dreierp", augen);
+		  break;
+	     }
+	     else {
+		      zaehler = 0;
+		 }	 
+	 }       
+};
+var viererp = function() {
+     var augen = 0
+     var zaehler = 0
+     for(i=1;i<7;i++){
+		 for(j=0;j<5;j++){
+			 if(i===allDice[j]){
+				   zaehler++; 
+			 }
+		 }
+		 if(zaehler>=4){
+		  for(k=0;k<5;k++){
+			  augen += allDice[k];
+		  }
+		  changeText("p1_viererp", augen);
+		  break;
+	     }
+	     else {
+		      zaehler = 0;
+		 }	 
+	 }              
+};
+var fullHouse = function() {
+    var zaehler = 0
+    var zaehler2 = 0
+     for(i=1;i<7;i++){
+		 for(j=0;j<5;j++){
+			 if(i===allDice[j]){
+				   zaehler++; 
+			 }
+		 }
+		 if(zaehler===3){
+		    break;
+			for(k=0;k<5;k++){
+			 if(i===allDice[k]&&i!==allDice[j]){
+				   zaehler2++; 
+			 }
+			if(zaehler2===2){
+				changeText("p1_fullHouse", 25);
+				break;
+			}
+		 }
+	 }
+	     else {
+		      zaehler = 0;
+		 }	 
+	 }
+};
+var kniffel = function() {
+     var zaehler = 0
+     for(i=1;i<7;i++){
+		 for(j=0;j<5;j++){
+			 if(i===allDice[j]){
+				   zaehler++; 
+			 }
+		 }
+		 if(zaehler===5){
+		  changeText("p1_kniffel", 50);
+		  break;
+	     }
+	     else {
+		      zaehler = 0;
+		 }	 
 	 }
 };
 var chance = function() {

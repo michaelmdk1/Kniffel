@@ -225,3 +225,9 @@ var runde = function(){
 	counter = 0;
 };
 
+function uncheckAll()
+{
+for (i = 0; i < document.dice.list.length; i++)
+	document.dice.list[i].checked = false ;
+}
+

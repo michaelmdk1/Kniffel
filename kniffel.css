@@ -1,8 +1,17 @@
 table
 {
-border-collapse:collapse;
+	border-collapse:collapse;
 }
 table,th, td
 {
-border: 1px solid black;
+	border: 1px solid black;
 }
+input[name="wuerfel"]
+{
+	border:1px dashed #f0f; 
+	padding:1px; 
+	color:#000;
+	width:40px; 
+	height:40px;
+}
+

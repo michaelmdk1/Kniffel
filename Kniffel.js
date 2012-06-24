@@ -1,4 +1,5 @@
 var counter = 0
+var runden = 1
 var allDice = [0, 0, 0, 0, 0];
 var wurf = function() {
     for(i=0;i<5;i++){
@@ -201,3 +202,8 @@ var groses = function() {
 		changeText("p1_groses", 40);
 		} 
 };
+var runde = function(){
+	runden +=1;
+	counter = 0;
+};
+

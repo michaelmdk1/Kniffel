@@ -249,7 +249,6 @@ function Spieler(number, name)
 				if(new_ad[i]+1 === new_ad[i+1])
 				{
 					count++;
-					changeText("fehler", count);
 				}
 			}
 		if(count >= 3){
@@ -268,7 +267,6 @@ function Spieler(number, name)
 			if(new_ad[i]+1 === new_ad[i+1])
 			{
 				count++;
-				changeText("fehler", count);
 			}
 		}
 	if(count === 4){
@@ -307,6 +305,7 @@ var move = function(){
 		runden++;
 	}
 	document.getElementById(aktiverSpieler).style.backgroundColor = "#FF9933";
+	changeText("fehler", "");
 	
 };
 	

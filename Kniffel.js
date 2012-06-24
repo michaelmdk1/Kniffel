@@ -168,21 +168,36 @@ for(k=0;k<5;k++){
 		  changeText("p1_chance", augen);
 };
 var kleines = function() {
-       
-};
-var groses = function() {
+	var count=0;
 	var new_ad = allDice.slice();
 	new_ad.sort();
-	if(new_ad[0] > 2){return}
-	else {
-			for(i=new_ad[0];i<new_ad[0]+3;i++)
-				{
-					if(new_ad[i]+1 !== new_ad[i+1])
-					{
-						changeText("p1_groses", "Nope");
-					}
-				}
-		changeText("p1_groses", 40);
+
+	for(i=0;i<4;i++)
+		{
+			if(new_ad[i]+1 === new_ad[i+1])
+			{
+				count++;
+				changeText("fehler", count);
+			}
 		}
-	 
+	if(count >= 3){
+		changeText("p1_kleines", 30);
+		} 
+};
+var groses = function() {
+	var count=0;
+	var new_ad = allDice.slice();
+	new_ad.sort();
+
+	for(i=0;i<4;i++)
+		{
+			if(new_ad[i]+1 === new_ad[i+1])
+			{
+				count++;
+				changeText("fehler", count);
+			}
+		}
+	if(count === 4){
+		changeText("p1_groses", 40);
+		} 
 };

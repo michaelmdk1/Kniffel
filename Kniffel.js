@@ -1,7 +1,7 @@
 var counter = 0
 var runden = 1
 var allDice = [0, 0, 0, 0, 0];
-var points = [
+var points = [];
 var wurf = function() {
     if(counter<3){
 		for(i=0;i<5;i++){

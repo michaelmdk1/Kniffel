@@ -30,28 +30,25 @@ function Spieler(number, name)
 	this.summe_g=0;
 	
 	this.writeToHTML = function() {
-		changeText("p"+this.number+"_one",this.one);
-		changeText("p"+this.number+"_two",this.two);
-		changeText("p"+this.number+"_three",this.three);
-		changeText("p"+this.number+"_four",this.four);
-		changeText("p"+this.number+"_five",this.five);
-		changeText("p"+this.number+"_six",this.six);
-		changeText("p"+this.number+"_zwSumme",this.zwsumme);
+		if(this.one!=0) changeText("p"+this.number+"_one",this.one);
+		if(this.two!=0) changeText("p"+this.number+"_two",this.two);
+		if(this.three!=0) changeText("p"+this.number+"_three",this.three);
+		if(this.four!=0) changeText("p"+this.number+"_four",this.four);
+		if(this.five!=0) changeText("p"+this.number+"_five",this.five);
+		if(this.six!=0) changeText("p"+this.number+"_six",this.six);
+		if(this.zwsumme!=0) changeText("p"+this.number+"_zwSumme",this.zwsumme);
 		if(this.zwsumme >=63){
 			changeText("p"+this.number+"_bonus",this.bonus);
 		}
-		else{
-			changeText("p"+this.number+"_bonus",0);
-			}
-		changeText("p"+this.number+"_summe",this.summe);
-		changeText("p"+this.number+"_dreierp",this.dreierp);
-		changeText("p"+this.number+"_viererp",this.viererp);
-		changeText("p"+this.number+"_chance",this.chance);
-		changeText("p"+this.number+"_fullHouse",this.fullHouse);
-		changeText("p"+this.number+"_groses",this.groses);
-		changeText("p"+this.number+"_kleines",this.kleines);
-		changeText("p"+this.number+"_kniffel",this.kniffel);
-		changeText("p"+this.number+"_summe_g",this.summe_g);
+		if(this.summe!=0) changeText("p"+this.number+"_summe",this.summe);
+		if(this.dreierp!=0) changeText("p"+this.number+"_dreierp",this.dreierp);
+		if(this.viererp!=0) changeText("p"+this.number+"_viererp",this.viererp);
+		if(this.chance!=0) changeText("p"+this.number+"_chance",this.chance);
+		if(this.fullHouse!=0) changeText("p"+this.number+"_fullHouse",this.fullHouse);
+		if(this.groses!=0) changeText("p"+this.number+"_groses",this.groses);
+		if(this.kleines!=0) changeText("p"+this.number+"_kleines",this.kleines);
+		if(this.kniffel!=0) changeText("p"+this.number+"_kniffel",this.kniffel);
+		if(this.summe_g!=0) changeText("p"+this.number+"_summe_g",this.summe_g);
 	}
 	
 	this.calc = function (){

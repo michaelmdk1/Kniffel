@@ -305,13 +305,10 @@ var one = function(){
 	spielerArray[aktiverSpieler].setOne();
 	spielerArray[aktiverSpieler].calc();
 	spielerArray[aktiverSpieler].writeToHTML();
-	if(aktiverSpieler%anzahlSpieler>=1){
+	aktiverSpieler++;
+	if(aktiverSpieler===anzahlSpieler){
 		aktiverSpieler=0;
-	}
-	else {
-		aktiverSpieler++;
-	}
-		
+	}	
 };
 
 var two = function(){

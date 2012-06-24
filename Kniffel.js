@@ -36,8 +36,8 @@ function Spieler(number, name)
 		changeText("p"+this.number+"_four",this.four);
 		changeText("p"+this.number+"_five",this.five);
 		changeText("p"+this.number+"_six",this.six);
-		changeText("p"+this.number+"_zwsumme",this.zwsumme);
-		if(zwsumme >=63){
+		changeText("p"+this.number+"_zwSumme",this.zwsumme);
+		if(this.zwsumme >=63){
 			changeText("p"+this.number+"_bonus",this.bonus);
 		}
 		else{
@@ -67,7 +67,7 @@ function Spieler(number, name)
 		this.summe_g=this.summe+this.chance+this.dreierp+this.fullHouse+this.groses+this.kleines+this.kniffel+this.viererp;
 	}
 	
-	this.SetOne = function() {
+	this.setOne = function() {
 		 var suchZahl = 1;
 		 var zahl = 0;
 		 for(i=0;i<5;i++){
@@ -139,6 +139,144 @@ function Spieler(number, name)
 	 runde();       
 };
 	
+	this.setDreierp = function() {
+     var augen = 0
+     var zaehler = 0
+     for(i=1;i<7;i++){
+		 for(j=0;j<5;j++){
+			 if(i===allDice[j]){
+				   zaehler++; 
+			 }
+		 }
+		 if(zaehler>=3){
+		  for(k=0;k<5;k++){
+			  augen += allDice[k];
+		  }
+		  this.dreierp = augen;
+		  runde();
+		  return;
+	     }
+	     else {
+		      zaehler = 0;
+		 }	 
+	 }       
+};
+	
+	this.setViererp = function() {
+		 var augen = 0
+		 var zaehler = 0
+		 for(i=1;i<7;i++){
+			 for(j=0;j<5;j++){
+				 if(i===allDice[j]){
+					   zaehler++; 
+				 }
+			 }
+			 if(zaehler>=4){
+			  for(k=0;k<5;k++){
+				  augen += allDice[k];
+			  }
+			  this.viererp = augen;
+			  runde();
+			  return;
+			 }
+			 else {
+				  zaehler = 0;
+			 }	 
+		 }              
+	};
+	
+	this.setFullHouse = function() {
+		var zaehler = 0;
+		var zaehler2 = 0;
+		 for(i=1;i<7;i++){
+			 for(j=0;j<5;j++){
+				 if(i===allDice[j]){
+					   zaehler++; 
+				 }
+			 }
+			 if(zaehler===3){
+				for(k=0;k<5;k++){
+				 if(i===allDice[k]&&i!==allDice[j]){
+					   zaehler2++; 
+				 }
+				if(zaehler2===2){
+					this.fullHouse = 25;
+					runde();
+					return;
+				}
+			 }
+		 }
+			 else {
+				  zaehler = 0;
+			 }	 
+		 } 
+	};
+
+	this.setKniffel = function() {
+		 var zaehler = 0
+		 for(i=1;i<7;i++){
+			 for(j=0;j<5;j++){
+				 if(i===allDice[j]){
+					   zaehler++; 
+				 }
+			 }
+			 if(zaehler===5){
+			  this.kniffel = 50;
+			  runde();
+			  return;
+			 }
+			 else {
+				  zaehler = 0;
+			 }	 
+		 }
+	};
+
+	this.setChance = function() {
+		var augen = 0;
+		for(k=0;k<5;k++){
+				  augen += allDice[k];
+			  }
+			  this.chance = augen;
+			  runde();
+	};
+
+	this.setKleines = function() {
+		var count=0;
+		var new_ad = allDice.slice();
+		new_ad.sort();
+
+		for(i=0;i<4;i++)
+			{
+				if(new_ad[i]+1 === new_ad[i+1])
+				{
+					count++;
+					changeText("fehler", count);
+				}
+			}
+		if(count >= 3){
+			this.kleines = 30;
+			runde();
+			} 
+	};
+	
+	this.setGroses = function() {
+	var count=0;
+	var new_ad = allDice.slice();
+	new_ad.sort();
+
+	for(i=0;i<4;i++)
+		{
+			if(new_ad[i]+1 === new_ad[i+1])
+			{
+				count++;
+				changeText("fehler", count);
+			}
+		}
+	if(count === 4){
+		this.groses = 40;
+		runde();
+		}  
+	};
 	
 }
 
@@ -180,150 +318,25 @@ var five = function(){
 
 var six = function(){
 };
-Spieler.dreierp = function() {
-     var augen = 0
-     var zaehler = 0
-     for(i=1;i<7;i++){
-		 for(j=0;j<5;j++){
-			 if(i===allDice[j]){
-				   zaehler++; 
-			 }
-		 }
-		 if(zaehler>=3){
-		  for(k=0;k<5;k++){
-			  augen += allDice[k];
-		  }
-		  this.dreierp = augen;
-		  runde();
-		  return;
-	     }
-	     else {
-		      zaehler = 0;
-		 }	 
-	 }       
-};
+
 var dreierp = function(){
 };
-Spieler.viererp = function() {
-     var augen = 0
-     var zaehler = 0
-     for(i=1;i<7;i++){
-		 for(j=0;j<5;j++){
-			 if(i===allDice[j]){
-				   zaehler++; 
-			 }
-		 }
-		 if(zaehler>=4){
-		  for(k=0;k<5;k++){
-			  augen += allDice[k];
-		  }
-		  this.viererp = augen;
-		  runde();
-		  return;
-	     }
-	     else {
-		      zaehler = 0;
-		 }	 
-	 }              
-};
+
 var viererp = function(){
 };
-Spieler.fullHouse = function() {
-    var zaehler = 0;
-    var zaehler2 = 0;
-     for(i=1;i<7;i++){
-		 for(j=0;j<5;j++){
-			 if(i===allDice[j]){
-				   zaehler++; 
-			 }
-		 }
-		 if(zaehler===3){
-			for(k=0;k<5;k++){
-			 if(i===allDice[k]&&i!==allDice[j]){
-				   zaehler2++; 
-			 }
-			if(zaehler2===2){
-				this.fullHouse = 25;
-				runde();
-				return;
-			}
-		 }
-	 }
-	     else {
-		      zaehler = 0;
-		 }	 
-	 } 
-};
+
 var fullHouse = function(){
 };
-Spieler.kniffel = function() {
-     var zaehler = 0
-     for(i=1;i<7;i++){
-		 for(j=0;j<5;j++){
-			 if(i===allDice[j]){
-				   zaehler++; 
-			 }
-		 }
-		 if(zaehler===5){
-		  this.kniffel = 50;
-		  runde();
-		  return;
-	     }
-	     else {
-		      zaehler = 0;
-		 }	 
-	 }
-};
+
 var kniffel = function(){
 };
-Spieler.chance = function() {
-    var augen = 0;
-    for(k=0;k<5;k++){
-			  augen += allDice[k];
-		  }
-		  this.chance = augen;
-		  runde();
-};
+
 var chance = function(){
 };
-Spieler.kleines = function() {
-	var count=0;
-	var new_ad = allDice.slice();
-	new_ad.sort();
 
-	for(i=0;i<4;i++)
-		{
-			if(new_ad[i]+1 === new_ad[i+1])
-			{
-				count++;
-				changeText("fehler", count);
-			}
-		}
-	if(count >= 3){
-		this.kleines = 30;
-		runde();
-		} 
-};
 var kleines = function(){
 };
-Spieler.groses = function() {
-	var count=0;
-	var new_ad = allDice.slice();
-	new_ad.sort();
 
-	for(i=0;i<4;i++)
-		{
-			if(new_ad[i]+1 === new_ad[i+1])
-			{
-				count++;
-				changeText("fehler", count);
-			}
-		}
-	if(count === 4){
-		this.groses = 40;
-		runde();
-		}  
-};
 var groses = function(){
 };
 var runde = function(){

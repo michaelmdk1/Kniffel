@@ -83,7 +83,7 @@ var changeText = function(id, text){
 	document.getElementById(id).innerHTML=text;
 };
 
-var one = function() {
+Spieler.one = function() {
      var suchZahl = 1;
      var zahl = 0;
      for(i=0;i<5;i++){
@@ -91,11 +91,11 @@ var one = function() {
 			zahl += suchZahl;
 		}
 	 }
-	 changeText("p1_one", zahl);
+	 this.one = zahl;
 	 runde();
 };
 
-var two = function() {
+Spieler.two = function() {
      var suchZahl = 2;
      var zahl = 0;
      for(i=0;i<5;i++){
@@ -103,10 +103,10 @@ var two = function() {
 			zahl += suchZahl;
 		}
 	 }
-	 changeText("p1_two", zahl);
+	 this.two = zahl;
 	 runde();    
 };
-var three = function() {
+Spieler.three = function() {
      var suchZahl = 3;
      var zahl = 0;
      for(i=0;i<5;i++){
@@ -114,10 +114,10 @@ var three = function() {
 			zahl += suchZahl;
 		}
 	 }
-	 changeText("p1_three", zahl);
+	 this.three = zahl;
 	 runde();       
 };
-var four = function() {
+Spieler.four = function() {
      var suchZahl = 4;
      var zahl = 0;
      for(i=0;i<5;i++){
@@ -125,10 +125,10 @@ var four = function() {
 			zahl += suchZahl;
 		}
 	 }
-	 changeText("p1_four", zahl);
+	 this.four = zahl;
 	 runde();       
 };
-var five = function() {
+Spieler.five = function() {
      var suchZahl = 5;
      var zahl = 0;
      for(i=0;i<5;i++){
@@ -136,10 +136,10 @@ var five = function() {
 			zahl += suchZahl;
 		}
 	 }
-	 changeText("p1_five", zahl);
+	 this.five = zahl;
 	 runde();       
 };
-var six = function() {
+Spieler.six = function() {
      var suchZahl = 6;
      var zahl = 0;
      for(i=0;i<5;i++){
@@ -147,10 +147,10 @@ var six = function() {
 			zahl += suchZahl;
 		}
 	 }
-	 changeText("p1_six", zahl);
+	 this.six = zahl;
 	 runde();       
 };
-var dreierp = function() {
+Spieler.dreierp = function() {
      var augen = 0
      var zaehler = 0
      for(i=1;i<7;i++){
@@ -163,7 +163,7 @@ var dreierp = function() {
 		  for(k=0;k<5;k++){
 			  augen += allDice[k];
 		  }
-		  changeText("p1_dreierp", augen);
+		  this.dreierp = augen;
 		  runde();
 		  return;
 	     }
@@ -172,7 +172,7 @@ var dreierp = function() {
 		 }	 
 	 }       
 };
-var viererp = function() {
+Spieler.viererp = function() {
      var augen = 0
      var zaehler = 0
      for(i=1;i<7;i++){
@@ -185,7 +185,7 @@ var viererp = function() {
 		  for(k=0;k<5;k++){
 			  augen += allDice[k];
 		  }
-		  changeText("p1_viererp", augen);
+		  this.viererp = augen;
 		  runde();
 		  return;
 	     }
@@ -194,7 +194,7 @@ var viererp = function() {
 		 }	 
 	 }              
 };
-var fullHouse = function() {
+Spieler.fullHouse = function() {
     var zaehler = 0;
     var zaehler2 = 0;
      for(i=1;i<7;i++){
@@ -209,7 +209,7 @@ var fullHouse = function() {
 				   zaehler2++; 
 			 }
 			if(zaehler2===2){
-				changeText("p1_fullHouse", 25);
+				this.fullHouse = 25;
 				runde();
 				return;
 			}
@@ -220,7 +220,7 @@ var fullHouse = function() {
 		 }	 
 	 } 
 };
-var kniffel = function() {
+Spieler.kniffel = function() {
      var zaehler = 0
      for(i=1;i<7;i++){
 		 for(j=0;j<5;j++){
@@ -229,7 +229,7 @@ var kniffel = function() {
 			 }
 		 }
 		 if(zaehler===5){
-		  changeText("p1_kniffel", 50);
+		  this.kniffel = 50;
 		  runde();
 		  return;
 	     }
@@ -238,15 +238,15 @@ var kniffel = function() {
 		 }	 
 	 }
 };
-var chance = function() {
+Spieler.chance = function() {
     var augen = 0;
     for(k=0;k<5;k++){
 			  augen += allDice[k];
 		  }
-		  changeText("p1_chance", augen);
+		  this.chance = augen;
 		  runde();
 };
-var kleines = function() {
+Spieler.kleines = function() {
 	var count=0;
 	var new_ad = allDice.slice();
 	new_ad.sort();
@@ -260,11 +260,11 @@ var kleines = function() {
 			}
 		}
 	if(count >= 3){
-		changeText("p1_kleines", 30);
+		this.kleines = 30;
 		runde();
 		} 
 };
-var groses = function() {
+Spieler.groses = function() {
 	var count=0;
 	var new_ad = allDice.slice();
 	new_ad.sort();
@@ -278,7 +278,7 @@ var groses = function() {
 			}
 		}
 	if(count === 4){
-		addText("p1_groses", 40);
+		this.groses = 40;
 		runde();
 		}  
 };

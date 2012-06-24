@@ -2,11 +2,11 @@ var counter = 0;
 var runden = 1;
 var allDice = [0, 0, 0, 0, 0];
 var anzahlSpieler = 0;
-var spielerArray[];
+var spielerArray =new Array();
 /*Spielerobjekte erzeugen*/
 
 
-/* Konstruktor Spieler*/
+/* Klasse Spieler*/
 function Spieler(number, name)
 {
 	this.Name=name;
@@ -28,47 +28,119 @@ function Spieler(number, name)
 	this.kniffel=0;
 	this.viererp=0;
 	this.summe_g=0;
-}
-Spieler.calc = function (){
-	this.zwsumme=this.one+this.two+this.three+this.four+
-	this.five+this.six;
-	if(this.zwsumme >= 63)
-	{
-		this.summe=this.bonus+this.zwsumme;
-	}
-	else {
-		this.summe = this.zwsumme;
-	}
-	this.summe_g=this.summe+this.bonus+this.chance+this.dreierp+
-	this.fullHouse+this.groses+this.kleines+this.kniffel+
-	this.viererp;
-}
-Spieler.writeToHTML = function() {
 	
-	changeText("p"+this.number+"_one",this.one);
-	changeText("p"+this.number+"_two",this.two);
-	changeText("p"+this.number+"_three",this.three);
-	changeText("p"+this.number+"_four",this.four);
-	changeText("p"+this.number+"_five",this.five);
-	changeText("p"+this.number+"_six",this.six);
-	changeText("p"+this.number+"_zwsumme",this.zwsumme);
-	if(zwsumme >=63){
-		changeText("p"+this.number+"_bonus",this.bonus);
-	}
-	else{
-		changeText("p"+this.number+"_bonus",0);
+	this.writeToHTML = function() {
+		changeText("p"+this.number+"_one",this.one);
+		changeText("p"+this.number+"_two",this.two);
+		changeText("p"+this.number+"_three",this.three);
+		changeText("p"+this.number+"_four",this.four);
+		changeText("p"+this.number+"_five",this.five);
+		changeText("p"+this.number+"_six",this.six);
+		changeText("p"+this.number+"_zwsumme",this.zwsumme);
+		if(zwsumme >=63){
+			changeText("p"+this.number+"_bonus",this.bonus);
 		}
-	changeText("p"+this.number+"_summe",this.summe);
-	changeText("p"+this.number+"_dreierp",this.dreierp);
-	changeText("p"+this.number+"_viererp",this.viererp);
-	changeText("p"+this.number+"_chance",this.chance);
-	changeText("p"+this.number+"_fullHouse",this.fullHouse);
-	changeText("p"+this.number+"_groses",this.groses);
-	changeText("p"+this.number+"_kleines",this.kleines);
-	changeText("p"+this.number+"_kniffel",this.kniffel);
-	changeText("p"+this.number+"_summe_g",this.summe_g);
+		else{
+			changeText("p"+this.number+"_bonus",0);
+			}
+		changeText("p"+this.number+"_summe",this.summe);
+		changeText("p"+this.number+"_dreierp",this.dreierp);
+		changeText("p"+this.number+"_viererp",this.viererp);
+		changeText("p"+this.number+"_chance",this.chance);
+		changeText("p"+this.number+"_fullHouse",this.fullHouse);
+		changeText("p"+this.number+"_groses",this.groses);
+		changeText("p"+this.number+"_kleines",this.kleines);
+		changeText("p"+this.number+"_kniffel",this.kniffel);
+		changeText("p"+this.number+"_summe_g",this.summe_g);
+	}
+	
+	this.calc = function (){
+		this.zwsumme=this.one+this.two+this.three+this.four+this.five+this.six;
+		console.log("ZwSumme: "+ this.zwsumme);
+		if(this.zwsumme >= 63)
+		{
+			this.summe=this.bonus+this.zwsumme;
+		}
+		else {
+			this.summe = this.zwsumme;
+		}
+		this.summe_g=this.summe+this.chance+this.dreierp+this.fullHouse+this.groses+this.kleines+this.kniffel+this.viererp;
+	}
+	
+	this.SetOne = function() {
+		 var suchZahl = 1;
+		 var zahl = 0;
+		 for(i=0;i<5;i++){
+			if(allDice[i]===suchZahl){
+				zahl += suchZahl;
+			}
+		 }
+		 this.one = zahl;
+		 runde();
+	};
+	
+	this.setTwo = function() {
+		 var suchZahl = 2;
+		 var zahl = 0;
+		 for(i=0;i<5;i++){
+			if(allDice[i]===suchZahl){
+				zahl += suchZahl;
+			}
+		 }
+		 this.two = zahl;
+		 runde();    
+	};
+	
+	this.setThree = function() {
+		 var suchZahl = 3;
+		 var zahl = 0;
+		 for(i=0;i<5;i++){
+			if(allDice[i]===suchZahl){
+				zahl += suchZahl;
+			}
+		 }
+		 this.three = zahl;
+		 runde();       
+	};
+	
+	this.setFour = function() {
+     var suchZahl = 4;
+     var zahl = 0;
+     for(i=0;i<5;i++){
+		if(allDice[i]===suchZahl){
+			zahl += suchZahl;
+		}
+	 }
+	 this.four = zahl;
+	 runde();       
+};
+	
+	this.setFive = function() {
+     var suchZahl = 5;
+     var zahl = 0;
+     for(i=0;i<5;i++){
+		if(allDice[i]===suchZahl){
+			zahl += suchZahl;
+		}
+	 }
+	 this.five = zahl;
+	 runde();       
+};
+	
+	this.setSix = function() {
+     var suchZahl = 6;
+     var zahl = 0;
+     for(i=0;i<5;i++){
+		if(allDice[i]===suchZahl){
+			zahl += suchZahl;
+		}
+	 }
+	 this.six = zahl;
+	 runde();       
+};
+	
+	
 }
-
 
 var wurf = function() {
     if(counter<3){
@@ -87,85 +159,25 @@ var wurf = function() {
    }
 };
 var changeText = function(id, text){
+	console.log("ID: "+id)
 	document.getElementById(id).innerHTML=text;
 };
 
-Spieler.one = function() {
-     var suchZahl = 1;
-     var zahl = 0;
-     for(i=0;i<5;i++){
-		if(allDice[i]===suchZahl){
-			zahl += suchZahl;
-		}
-	 }
-	 this.one = zahl;
-	 runde();
-};
 var one = function(){
 };
-Spieler.two = function() {
-     var suchZahl = 2;
-     var zahl = 0;
-     for(i=0;i<5;i++){
-		if(allDice[i]===suchZahl){
-			zahl += suchZahl;
-		}
-	 }
-	 this.two = zahl;
-	 runde();    
-};
+
 var two = function(){
 };
-Spieler.three = function() {
-     var suchZahl = 3;
-     var zahl = 0;
-     for(i=0;i<5;i++){
-		if(allDice[i]===suchZahl){
-			zahl += suchZahl;
-		}
-	 }
-	 this.three = zahl;
-	 runde();       
-};
+
 var three = function(){
 };
-Spieler.four = function() {
-     var suchZahl = 4;
-     var zahl = 0;
-     for(i=0;i<5;i++){
-		if(allDice[i]===suchZahl){
-			zahl += suchZahl;
-		}
-	 }
-	 this.four = zahl;
-	 runde();       
-};
+
 var four = function(){
 };
-Spieler.five = function() {
-     var suchZahl = 5;
-     var zahl = 0;
-     for(i=0;i<5;i++){
-		if(allDice[i]===suchZahl){
-			zahl += suchZahl;
-		}
-	 }
-	 this.five = zahl;
-	 runde();       
-};
+
 var five = function(){
 };
-Spieler.six = function() {
-     var suchZahl = 6;
-     var zahl = 0;
-     for(i=0;i<5;i++){
-		if(allDice[i]===suchZahl){
-			zahl += suchZahl;
-		}
-	 }
-	 this.six = zahl;
-	 runde();       
-};
+
 var six = function(){
 };
 Spieler.dreierp = function() {
@@ -330,7 +342,10 @@ function spieleranzahl_lesen(){
 	anzahlSpieler = document.getElementById('spieleranzahl').value;
 	console.log("Anzahl Spieler gesetzt: "+anzahlSpieler);
 	for(i=0; i < anzahlSpieler; i++){
-		spielerArray[i] = new Spieler(i,"testname");
+		spielerArray[i] = new Spieler(i+1,"testname");
+		spielerArray[i].calc();
+		spielerArray[i].writeToHTML();
 	}
+	
 }
 

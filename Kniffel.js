@@ -220,7 +220,7 @@ function Spieler(number, name)
 				 }
 			 }
 			 if(zaehler===5){
-			  this.kniffel = 50;
+			  this.kniffel += 50;
 			  zug();
 			  return;
 			 }
@@ -310,66 +310,84 @@ var move = function(){
 };
 	
 var one = function(){
-	spielerArray[aktiverSpieler].setOne();
-	spielerArray[aktiverSpieler].calc();
-	spielerArray[aktiverSpieler].writeToHTML();
-	move();
+	if(spielerArray[aktiverSpieler].one <= 0){
+		spielerArray[aktiverSpieler].setOne();
+		spielerArray[aktiverSpieler].calc();
+		spielerArray[aktiverSpieler].writeToHTML();
+		move();
+	}
 };
 
 var two = function(){
-	spielerArray[aktiverSpieler].setTwo();
-	spielerArray[aktiverSpieler].calc();
-	spielerArray[aktiverSpieler].writeToHTML();
-	move();
+	if(spielerArray[aktiverSpieler].two <= 0){
+		spielerArray[aktiverSpieler].setTwo();
+		spielerArray[aktiverSpieler].calc();
+		spielerArray[aktiverSpieler].writeToHTML();
+		move();
+	}
 };
 
 var three = function(){
-	spielerArray[aktiverSpieler].setThree();
-	spielerArray[aktiverSpieler].calc();
-	spielerArray[aktiverSpieler].writeToHTML();
-	move();
+	if(spielerArray[aktiverSpieler].three <= 0){
+		spielerArray[aktiverSpieler].setThree();
+		spielerArray[aktiverSpieler].calc();
+		spielerArray[aktiverSpieler].writeToHTML();
+		move();
+	}
 };
 
 var four = function(){
-	spielerArray[aktiverSpieler].setFour();
-	spielerArray[aktiverSpieler].calc();
-	spielerArray[aktiverSpieler].writeToHTML();
-	move();
+	if(spielerArray[aktiverSpieler].four <= 0){
+		spielerArray[aktiverSpieler].setFour();
+		spielerArray[aktiverSpieler].calc();
+		spielerArray[aktiverSpieler].writeToHTML();
+		move();
+	}
 };
 
 var five = function(){
-	spielerArray[aktiverSpieler].setFive();
-	spielerArray[aktiverSpieler].calc();
-	spielerArray[aktiverSpieler].writeToHTML();
-	move();
+	if(spielerArray[aktiverSpieler].five <= 0){
+		spielerArray[aktiverSpieler].setFive();
+		spielerArray[aktiverSpieler].calc();
+		spielerArray[aktiverSpieler].writeToHTML();
+		move();
+	}
 };
 
 var six = function(){
-	spielerArray[aktiverSpieler].setSix();
-	spielerArray[aktiverSpieler].calc();
-	spielerArray[aktiverSpieler].writeToHTML();
-	move();
+	if(spielerArray[aktiverSpieler].six <= 0){
+		spielerArray[aktiverSpieler].setSix();
+		spielerArray[aktiverSpieler].calc();
+		spielerArray[aktiverSpieler].writeToHTML();
+		move();
+	}
 };
 
 var dreierp = function(){
-	spielerArray[aktiverSpieler].setDreierp();
-	spielerArray[aktiverSpieler].calc();
-	spielerArray[aktiverSpieler].writeToHTML();
-	move();
+	if(spielerArray[aktiverSpieler].dreierp <= 0){
+		spielerArray[aktiverSpieler].setDreierp();
+		spielerArray[aktiverSpieler].calc();
+		spielerArray[aktiverSpieler].writeToHTML();
+		move();
+	}
 };
 
 var viererp = function(){
-	spielerArray[aktiverSpieler].setViererp();
-	spielerArray[aktiverSpieler].calc();
-	spielerArray[aktiverSpieler].writeToHTML();
-	move();
+	if(spielerArray[aktiverSpieler].viererp <= 0){
+		spielerArray[aktiverSpieler].setViererp();
+		spielerArray[aktiverSpieler].calc();
+		spielerArray[aktiverSpieler].writeToHTML();
+		move();
+	}
 };
 
 var fullHouse = function(){
-	spielerArray[aktiverSpieler].setFullHouse();
-	spielerArray[aktiverSpieler].calc();
-	spielerArray[aktiverSpieler].writeToHTML();
-	move();
+	if(spielerArray[aktiverSpieler].fullHouse <= 0){
+		spielerArray[aktiverSpieler].setFullHouse();
+		spielerArray[aktiverSpieler].calc();
+		spielerArray[aktiverSpieler].writeToHTML();
+		move();
+	}
 };
 
 var kniffel = function(){
@@ -380,24 +398,30 @@ var kniffel = function(){
 };
 
 var chance = function(){
-	spielerArray[aktiverSpieler].setChance();
-	spielerArray[aktiverSpieler].calc();
-	spielerArray[aktiverSpieler].writeToHTML();
-	move();
+	if(spielerArray[aktiverSpieler].chance <= 0){
+		spielerArray[aktiverSpieler].setChance();
+		spielerArray[aktiverSpieler].calc();
+		spielerArray[aktiverSpieler].writeToHTML();
+		move();
+	}
 };
 
 var kleines = function(){
-	spielerArray[aktiverSpieler].setKleines();
-	spielerArray[aktiverSpieler].calc();
-	spielerArray[aktiverSpieler].writeToHTML();
-	move();
+	if(spielerArray[aktiverSpieler].kleines <= 0){
+		spielerArray[aktiverSpieler].setKleines();
+		spielerArray[aktiverSpieler].calc();
+		spielerArray[aktiverSpieler].writeToHTML();
+		move();
+	}
 };
 
 var groses = function(){
-	spielerArray[aktiverSpieler].setGroses();
-	spielerArray[aktiverSpieler].calc();
-	spielerArray[aktiverSpieler].writeToHTML();
-	move();
+	if(spielerArray[aktiverSpieler].groses <= 0){
+		spielerArray[aktiverSpieler].setGroses();
+		spielerArray[aktiverSpieler].calc();
+		spielerArray[aktiverSpieler].writeToHTML();
+		move();
+	}
 };
 var zug = function(){
 	counter = 0;

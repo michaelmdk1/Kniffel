@@ -15,6 +15,7 @@ var wurf = function() {
    }
    else {
 	   changeText("fehler", "Maximale Würfe erreicht");
+   }
 };
 var changeText = function(id, text){
 	document.getElementById(id).innerHTML=text;

@@ -1,4 +1,5 @@
 var counter = 0
+var runden = 1
 var allDice = [0, 0, 0, 0, 0];
 var points = [];
 var wurf = function() {
@@ -202,3 +203,8 @@ var groses = function() {
 		addText("p1_groses", 40);
 		} 
 };
+var runde = function(){
+	runden +=1;
+	counter = 0;
+};
+

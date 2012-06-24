@@ -44,22 +44,27 @@ Spieler.calc = function (){
 Spieler.writeToHTML = function() {
 	
 	changeText("p"+this.number+"_one",this.one);
-	this.two=0;
-	this.three=0;
-	this.four=0;
-	this.five=0;
-	this.six=0;
-	this.zwsumme=0;
-	this.bonus=35;
-	this.summe=0;
-	this.chance=0;
-	this.dreierp=0;
-	this.fullHouse=0;
-	this.groses=0;
-	this.kleines=0;
-	this.kniffel=0;
-	this.viererp=0;
-	this.summe_g=0;
+	changeText("p"+this.number+"_two",this.two);
+	changeText("p"+this.number+"_three",this.three);
+	changeText("p"+this.number+"_four",this.four);
+	changeText("p"+this.number+"_five",this.five);
+	changeText("p"+this.number+"_six",this.six);
+	changeText("p"+this.number+"_zwsumme",this.zwsumme);
+	if(zwsumme >=63){
+		changeText("p"+this.number+"_bonus",this.bonus);
+	}
+	else{
+		changeText("p"+this.number+"_bonus",0);
+		}
+	changeText("p"+this.number+"_summe",this.summe);
+	changeText("p"+this.number+"_dreierp",this.dreierp);
+	changeText("p"+this.number+"_viererp",this.viererp);
+	changeText("p"+this.number+"_chance",this.chance);
+	changeText("p"+this.number+"_fullHouse",this.fullHouse);
+	changeText("p"+this.number+"_groses",this.groses);
+	changeText("p"+this.number+"_kleines",this.kleines);
+	changeText("p"+this.number+"_kniffel",this.kniffel);
+	changeText("p"+this.number+"_summe_g",this.summe_g);
 }
 
 

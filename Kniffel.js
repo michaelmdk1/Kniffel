@@ -119,8 +119,8 @@ var viererp = function() {
 	 }              
 };
 var fullHouse = function() {
-    var zaehler = 0
-    var zaehler2 = 0
+    var zaehler = 0;
+    var zaehler2 = 0;
      for(i=1;i<7;i++){
 		 for(j=0;j<5;j++){
 			 if(i===allDice[j]){
@@ -128,21 +128,20 @@ var fullHouse = function() {
 			 }
 		 }
 		 if(zaehler===3){
-		    break;
 			for(k=0;k<5;k++){
 			 if(i===allDice[k]&&i!==allDice[j]){
 				   zaehler2++; 
 			 }
 			if(zaehler2===2){
 				changeText("p1_fullHouse", 25);
-				break;
+				return;
 			}
 		 }
 	 }
 	     else {
 		      zaehler = 0;
 		 }	 
-	 }
+	 } 
 };
 var kniffel = function() {
      var zaehler = 0
@@ -162,7 +161,11 @@ var kniffel = function() {
 	 }
 };
 var chance = function() {
-       
+var augen = 0;
+for(k=0;k<5;k++){
+			  augen += allDice[k];
+		  }
+		  changeText("p1_chance", augen);
 };
 var kleines = function() {
        

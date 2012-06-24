@@ -300,13 +300,14 @@ var changeText = function(id, text){
 };
 
 var move = function(){
+	document.getElementById(aktiverSpieler).style.backgroundColor = "#FFFFFF";
 	aktiverSpieler++;
-	console.log("aktiver: "+ aktiverSpieler);
 	if(aktiverSpieler>=anzahlSpieler){
 		aktiverSpieler=0;
 		runden++;
-		console.log("reset");
-	}	
+	}
+	document.getElementById(aktiverSpieler).style.backgroundColor = "#FF9933";
+	
 };
 	
 var one = function(){
@@ -422,6 +423,7 @@ function spieleranzahl_lesen(){
 		spielerArray[i].calc();
 		spielerArray[i].writeToHTML();
 	}
+	document.getElementById(aktiverSpieler).style.backgroundColor = "#FF9933";
 	
 }
 

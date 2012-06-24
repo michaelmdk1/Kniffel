@@ -56,7 +56,6 @@ function Spieler(number, name)
 	
 	this.calc = function (){
 		this.zwsumme=this.one+this.two+this.three+this.four+this.five+this.six;
-		console.log("ZwSumme: "+ this.zwsumme);
 		if(this.zwsumme >= 63)
 		{
 			this.summe=this.bonus+this.zwsumme;
@@ -297,102 +296,108 @@ var wurf = function() {
    }
 };
 var changeText = function(id, text){
-	console.log("ID: "+id)
 	document.getElementById(id).innerHTML=text;
 };
 
+var move = function(){
+	aktiverSpieler++;
+	console.log("aktiver: "+ aktiverSpieler);
+	if(aktiverSpieler>=anzahlSpieler){
+		aktiverSpieler=0;
+		runden++;
+		console.log("reset");
+	}	
+};
+	
 var one = function(){
 	spielerArray[aktiverSpieler].setOne();
 	spielerArray[aktiverSpieler].calc();
 	spielerArray[aktiverSpieler].writeToHTML();
-	aktiverSpieler++;
-	if(aktiverSpieler===anzahlSpieler){
-		aktiverSpieler=0;
-	}	
+	move();
 };
 
 var two = function(){
 	spielerArray[aktiverSpieler].setTwo();
 	spielerArray[aktiverSpieler].calc();
 	spielerArray[aktiverSpieler].writeToHTML();
-	aktiverSpieler++;
+	move();
 };
 
 var three = function(){
 	spielerArray[aktiverSpieler].setThree();
 	spielerArray[aktiverSpieler].calc();
 	spielerArray[aktiverSpieler].writeToHTML();
-	aktiverSpieler++;
+	move();
 };
 
 var four = function(){
 	spielerArray[aktiverSpieler].setFour();
 	spielerArray[aktiverSpieler].calc();
 	spielerArray[aktiverSpieler].writeToHTML();
-	aktiverSpieler++;
+	move();
 };
 
 var five = function(){
 	spielerArray[aktiverSpieler].setFive();
 	spielerArray[aktiverSpieler].calc();
 	spielerArray[aktiverSpieler].writeToHTML();
-	aktiverSpieler++;
+	move();
 };
 
 var six = function(){
 	spielerArray[aktiverSpieler].setSix();
 	spielerArray[aktiverSpieler].calc();
 	spielerArray[aktiverSpieler].writeToHTML();
-	aktiverSpieler++;
+	move();
 };
 
 var dreierp = function(){
-	spielerArray[aktiverSpieler].setOne();
+	spielerArray[aktiverSpieler].setDreierp();
 	spielerArray[aktiverSpieler].calc();
 	spielerArray[aktiverSpieler].writeToHTML();
-	aktiverSpieler++;
+	move();
 };
 
 var viererp = function(){
 	spielerArray[aktiverSpieler].setViererp();
 	spielerArray[aktiverSpieler].calc();
 	spielerArray[aktiverSpieler].writeToHTML();
-	aktiverSpieler++;
+	move();
 };
 
 var fullHouse = function(){
 	spielerArray[aktiverSpieler].setFullHouse();
 	spielerArray[aktiverSpieler].calc();
 	spielerArray[aktiverSpieler].writeToHTML();
-	aktiverSpieler++;
+	move();
 };
 
 var kniffel = function(){
 	spielerArray[aktiverSpieler].setKniffel();
 	spielerArray[aktiverSpieler].calc();
 	spielerArray[aktiverSpieler].writeToHTML();
-	aktiverSpieler++;
+	move();
 };
 
 var chance = function(){
 	spielerArray[aktiverSpieler].setChance();
 	spielerArray[aktiverSpieler].calc();
 	spielerArray[aktiverSpieler].writeToHTML();
-	aktiverSpieler++;
+	move();
 };
 
 var kleines = function(){
 	spielerArray[aktiverSpieler].setKleines();
 	spielerArray[aktiverSpieler].calc();
 	spielerArray[aktiverSpieler].writeToHTML();
-	aktiverSpieler++;
+	move();
 };
 
 var groses = function(){
 	spielerArray[aktiverSpieler].setGroses();
 	spielerArray[aktiverSpieler].calc();
 	spielerArray[aktiverSpieler].writeToHTML();
-	aktiverSpieler++;
+	move();
 };
 var zug = function(){
 	counter = 0;

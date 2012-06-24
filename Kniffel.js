@@ -12,6 +12,7 @@ var wurf = function() {
 		   }
 		   counter +=1;
 		   changeText("counter", counter);
+		   changeText("runden", runden);
    }
    else {
 	   changeText("fehler", "Maximale Würfe erreicht");
@@ -223,5 +224,7 @@ var groses = function() {
 var runde = function(){
 	runden +=1;
 	counter = 0;
+	allDice = [0, 0, 0, 0, 0];
+	
 };
 

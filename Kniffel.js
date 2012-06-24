@@ -1,6 +1,6 @@
 var counter = 0
 var allDice = [0, 0, 0, 0, 0];
-var points = [
+var points = [];
 var wurf = function() {
     for(i=0;i<5;i++){
 		if(!document.dice.elements[i].checked){

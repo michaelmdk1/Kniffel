@@ -3,7 +3,7 @@ var runden = 1;
 var allDice = [0, 0, 0, 0, 0];
 var anzahlSpieler = 0;
 var spielerArray =new Array();
-/*Spielerobjekte erzeugen*/
+var aktiverSpieler = 0;
 
 
 /* Klasse Spieler*/
@@ -76,7 +76,7 @@ function Spieler(number, name)
 			}
 		 }
 		 this.one = zahl;
-		 runde();
+		 zug();
 	};
 	
 	this.setTwo = function() {
@@ -88,7 +88,7 @@ function Spieler(number, name)
 			}
 		 }
 		 this.two = zahl;
-		 runde();    
+		 zug();    
 	};
 	
 	this.setThree = function() {
@@ -100,7 +100,7 @@ function Spieler(number, name)
 			}
 		 }
 		 this.three = zahl;
-		 runde();       
+		 zug();       
 	};
 	
 	this.setFour = function() {
@@ -112,7 +112,7 @@ function Spieler(number, name)
 		}
 	 }
 	 this.four = zahl;
-	 runde();       
+	 zug();       
 };
 	
 	this.setFive = function() {
@@ -124,7 +124,7 @@ function Spieler(number, name)
 		}
 	 }
 	 this.five = zahl;
-	 runde();       
+	 zug();       
 };
 	
 	this.setSix = function() {
@@ -136,7 +136,7 @@ function Spieler(number, name)
 		}
 	 }
 	 this.six = zahl;
-	 runde();       
+	 zug();       
 };
 	
 	this.setDreierp = function() {
@@ -153,7 +153,7 @@ function Spieler(number, name)
 			  augen += allDice[k];
 		  }
 		  this.dreierp = augen;
-		  runde();
+		  zug();
 		  return;
 	     }
 	     else {
@@ -176,7 +176,7 @@ function Spieler(number, name)
 				  augen += allDice[k];
 			  }
 			  this.viererp = augen;
-			  runde();
+			  zug();
 			  return;
 			 }
 			 else {
@@ -201,7 +201,7 @@ function Spieler(number, name)
 				 }
 				if(zaehler2===2){
 					this.fullHouse = 25;
-					runde();
+					zug();
 					return;
 				}
 			 }
@@ -222,7 +222,7 @@ function Spieler(number, name)
 			 }
 			 if(zaehler===5){
 			  this.kniffel = 50;
-			  runde();
+			  zug();
 			  return;
 			 }
 			 else {
@@ -237,7 +237,7 @@ function Spieler(number, name)
 				  augen += allDice[k];
 			  }
 			  this.chance = augen;
-			  runde();
+			  zug();
 	};
 
 	this.setKleines = function() {
@@ -255,7 +255,7 @@ function Spieler(number, name)
 			}
 		if(count >= 3){
 			this.kleines = 30;
-			runde();
+			zug();
 			} 
 	};
 	
@@ -274,7 +274,7 @@ function Spieler(number, name)
 		}
 	if(count === 4){
 		this.groses = 40;
-		runde();
+		zug();
 		}  
 	};
 	
@@ -302,47 +302,108 @@ var changeText = function(id, text){
 };
 
 var one = function(){
+	spielerArray[aktiverSpieler].setOne();
+	spielerArray[aktiverSpieler].calc();
+	spielerArray[aktiverSpieler].writeToHTML();
+	if(aktiverSpieler%anzahlSpieler>=1){
+		aktiverSpieler=0;
+	}
+	else {
+		aktiverSpieler++;
+	}
+		
 };
 
 var two = function(){
+	spielerArray[aktiverSpieler].setTwo();
+	spielerArray[aktiverSpieler].calc();
+	spielerArray[aktiverSpieler].writeToHTML();
+	aktiverSpieler++;
 };
 
 var three = function(){
+	spielerArray[aktiverSpieler].setThree();
+	spielerArray[aktiverSpieler].calc();
+	spielerArray[aktiverSpieler].writeToHTML();
+	aktiverSpieler++;
 };
 
 var four = function(){
+	spielerArray[aktiverSpieler].setFour();
+	spielerArray[aktiverSpieler].calc();
+	spielerArray[aktiverSpieler].writeToHTML();
+	aktiverSpieler++;
 };
 
 var five = function(){
+	spielerArray[aktiverSpieler].setFive();
+	spielerArray[aktiverSpieler].calc();
+	spielerArray[aktiverSpieler].writeToHTML();
+	aktiverSpieler++;
 };
 
 var six = function(){
+	spielerArray[aktiverSpieler].setSix();
+	spielerArray[aktiverSpieler].calc();
+	spielerArray[aktiverSpieler].writeToHTML();
+	aktiverSpieler++;
 };
 
 var dreierp = function(){
+	spielerArray[aktiverSpieler].setOne();
+	spielerArray[aktiverSpieler].calc();
+	spielerArray[aktiverSpieler].writeToHTML();
+	aktiverSpieler++;
 };
 
 var viererp = function(){
+	spielerArray[aktiverSpieler].setViererp();
+	spielerArray[aktiverSpieler].calc();
+	spielerArray[aktiverSpieler].writeToHTML();
+	aktiverSpieler++;
 };
 
 var fullHouse = function(){
+	spielerArray[aktiverSpieler].setFullHouse();
+	spielerArray[aktiverSpieler].calc();
+	spielerArray[aktiverSpieler].writeToHTML();
+	aktiverSpieler++;
 };
 
 var kniffel = function(){
+	spielerArray[aktiverSpieler].setKniffel();
+	spielerArray[aktiverSpieler].calc();
+	spielerArray[aktiverSpieler].writeToHTML();
+	aktiverSpieler++;
 };
 
 var chance = function(){
+	spielerArray[aktiverSpieler].setChance();
+	spielerArray[aktiverSpieler].calc();
+	spielerArray[aktiverSpieler].writeToHTML();
+	aktiverSpieler++;
 };
 
 var kleines = function(){
+	spielerArray[aktiverSpieler].setKleines();
+	spielerArray[aktiverSpieler].calc();
+	spielerArray[aktiverSpieler].writeToHTML();
+	aktiverSpieler++;
 };
 
 var groses = function(){
+	spielerArray[aktiverSpieler].setGroses();
+	spielerArray[aktiverSpieler].calc();
+	spielerArray[aktiverSpieler].writeToHTML();
+	aktiverSpieler++;
 };
-var runde = function(){
-	runden +=1;
+var zug = function(){
 	counter = 0;
 	allDice = [0, 0, 0, 0, 0];
+	for(i=0;i<5;i++){
+		   changeText("dice"+(i+1),allDice[i]);
+		   }
+		   changeText("counter", counter);
 	uncheckAll();
 };
 

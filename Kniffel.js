@@ -3,15 +3,18 @@ var runden = 1
 var allDice = [0, 0, 0, 0, 0];
 var points = [
 var wurf = function() {
-    for(i=0;i<5;i++){
-		if(!document.dice.elements[i].checked){
-			allDice[i] = Math.floor(Math.random()*6+1);
-			}
-		changeText("dice"+(i+1),allDice[i]);
-       }
-       counter +=1;
-       changeText("counter", counter);
-       
+    if(counter<3){
+		for(i=0;i<5;i++){
+			if(!document.dice.elements[i].checked){
+				allDice[i] = Math.floor(Math.random()*6+1);
+				}
+			changeText("dice"+(i+1),allDice[i]);
+		   }
+		   counter +=1;
+		   changeText("counter", counter);
+   }
+   else {
+	   changeText("fehler", "Maximale Würfe erreicht");
 };
 var changeText = function(id, text){
 	document.getElementById(id).innerHTML=text;
@@ -26,6 +29,7 @@ var one = function() {
 		}
 	 }
 	 changeText("p1_one", zahl);
+	 runde();
 };
 
 var two = function() {
@@ -36,7 +40,8 @@ var two = function() {
 			zahl += suchZahl;
 		}
 	 }
-	 changeText("p1_two", zahl);    
+	 changeText("p1_two", zahl);
+	 runde();    
 };
 var three = function() {
      var suchZahl = 3;
@@ -46,7 +51,8 @@ var three = function() {
 			zahl += suchZahl;
 		}
 	 }
-	 changeText("p1_three", zahl);       
+	 changeText("p1_three", zahl);
+	 runde();       
 };
 var four = function() {
      var suchZahl = 4;
@@ -56,7 +62,8 @@ var four = function() {
 			zahl += suchZahl;
 		}
 	 }
-	 changeText("p1_four", zahl);       
+	 changeText("p1_four", zahl);
+	 runde();       
 };
 var five = function() {
      var suchZahl = 5;
@@ -66,7 +73,8 @@ var five = function() {
 			zahl += suchZahl;
 		}
 	 }
-	 changeText("p1_five", zahl);       
+	 changeText("p1_five", zahl);
+	 runde();       
 };
 var six = function() {
      var suchZahl = 6;
@@ -76,7 +84,8 @@ var six = function() {
 			zahl += suchZahl;
 		}
 	 }
-	 changeText("p1_six", zahl);       
+	 changeText("p1_six", zahl);
+	 runde();       
 };
 var dreierp = function() {
      var augen = 0
@@ -92,7 +101,8 @@ var dreierp = function() {
 			  augen += allDice[k];
 		  }
 		  changeText("p1_dreierp", augen);
-		  break;
+		  runde();
+		  return;
 	     }
 	     else {
 		      zaehler = 0;
@@ -113,7 +123,8 @@ var viererp = function() {
 			  augen += allDice[k];
 		  }
 		  changeText("p1_viererp", augen);
-		  break;
+		  runde();
+		  return;
 	     }
 	     else {
 		      zaehler = 0;
@@ -136,6 +147,7 @@ var fullHouse = function() {
 			 }
 			if(zaehler2===2){
 				changeText("p1_fullHouse", 25);
+				runde();
 				return;
 			}
 		 }
@@ -155,7 +167,8 @@ var kniffel = function() {
 		 }
 		 if(zaehler===5){
 		  changeText("p1_kniffel", 50);
-		  break;
+		  runde();
+		  return;
 	     }
 	     else {
 		      zaehler = 0;
@@ -163,11 +176,12 @@ var kniffel = function() {
 	 }
 };
 var chance = function() {
-var augen = 0;
-for(k=0;k<5;k++){
+    var augen = 0;
+    for(k=0;k<5;k++){
 			  augen += allDice[k];
 		  }
 		  changeText("p1_chance", augen);
+		  runde();
 };
 var kleines = function() {
 	var count=0;
@@ -184,6 +198,7 @@ var kleines = function() {
 		}
 	if(count >= 3){
 		changeText("p1_kleines", 30);
+		runde();
 		} 
 };
 var groses = function() {
@@ -201,7 +216,8 @@ var groses = function() {
 		}
 	if(count === 4){
 		addText("p1_groses", 40);
-		} 
+		runde();
+		}  
 };
 var runde = function(){
 	runden +=1;

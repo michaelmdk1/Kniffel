@@ -1,10 +1,12 @@
 var counter = 0;
 var runden = 1;
 var allDice = [0, 0, 0, 0, 0];
-var points = [[0,0,0,0,0,0],[]];
+var anzahlSpieler = 0;
+var spielerArray[];
+/*Spielerobjekte erzeugen*/
+
 
 /* Konstruktor Spieler*/
-var Spieler1 = new Spieler;
 function Spieler(number, name)
 {
 	this.Name=name;
@@ -323,5 +325,12 @@ function uncheckAll()
 {
 for (i = 0; i < document.dice.wuerfel.length; i++)
 	document.dice.wuerfel[i].checked = false ;
+}
+function spieleranzahl_lesen(){
+	anzahlSpieler = document.getElementById('spieleranzahl').value;
+	console.log("Anzahl Spieler gesetzt: "+anzahlSpieler);
+	for(i=0; i < anzahlSpieler; i++){
+		spielerArray[i] = new Spieler(i,"testname");
+	}
 }
 

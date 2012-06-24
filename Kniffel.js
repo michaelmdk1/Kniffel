@@ -1,5 +1,6 @@
 var counter = 0
 var allDice = [0, 0, 0, 0, 0];
+var points = [
 var wurf = function() {
     for(i=0;i<5;i++){
 		if(!document.dice.elements[i].checked){
@@ -198,6 +199,6 @@ var groses = function() {
 			}
 		}
 	if(count === 4){
-		changeText("p1_groses", 40);
+		addText("p1_groses", 40);
 		} 
 };

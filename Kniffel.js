@@ -99,7 +99,8 @@ Spieler.one = function() {
 	 this.one = zahl;
 	 runde();
 };
-
+var one = function(){
+};
 Spieler.two = function() {
      var suchZahl = 2;
      var zahl = 0;
@@ -110,6 +111,8 @@ Spieler.two = function() {
 	 }
 	 this.two = zahl;
 	 runde();    
+};
+var two = function(){
 };
 Spieler.three = function() {
      var suchZahl = 3;
@@ -122,6 +125,8 @@ Spieler.three = function() {
 	 this.three = zahl;
 	 runde();       
 };
+var three = function(){
+};
 Spieler.four = function() {
      var suchZahl = 4;
      var zahl = 0;
@@ -132,6 +137,8 @@ Spieler.four = function() {
 	 }
 	 this.four = zahl;
 	 runde();       
+};
+var four = function(){
 };
 Spieler.five = function() {
      var suchZahl = 5;
@@ -144,6 +151,8 @@ Spieler.five = function() {
 	 this.five = zahl;
 	 runde();       
 };
+var five = function(){
+};
 Spieler.six = function() {
      var suchZahl = 6;
      var zahl = 0;
@@ -154,6 +163,8 @@ Spieler.six = function() {
 	 }
 	 this.six = zahl;
 	 runde();       
+};
+var six = function(){
 };
 Spieler.dreierp = function() {
      var augen = 0
@@ -177,6 +188,8 @@ Spieler.dreierp = function() {
 		 }	 
 	 }       
 };
+var dreierp = function(){
+};
 Spieler.viererp = function() {
      var augen = 0
      var zaehler = 0
@@ -198,6 +211,8 @@ Spieler.viererp = function() {
 		      zaehler = 0;
 		 }	 
 	 }              
+};
+var viererp = function(){
 };
 Spieler.fullHouse = function() {
     var zaehler = 0;
@@ -225,6 +240,8 @@ Spieler.fullHouse = function() {
 		 }	 
 	 } 
 };
+var fullHouse = function(){
+};
 Spieler.kniffel = function() {
      var zaehler = 0
      for(i=1;i<7;i++){
@@ -243,6 +260,8 @@ Spieler.kniffel = function() {
 		 }	 
 	 }
 };
+var kniffel = function(){
+};
 Spieler.chance = function() {
     var augen = 0;
     for(k=0;k<5;k++){
@@ -250,6 +269,8 @@ Spieler.chance = function() {
 		  }
 		  this.chance = augen;
 		  runde();
+};
+var chance = function(){
 };
 Spieler.kleines = function() {
 	var count=0;
@@ -269,6 +290,8 @@ Spieler.kleines = function() {
 		runde();
 		} 
 };
+var kleines = function(){
+};
 Spieler.groses = function() {
 	var count=0;
 	var new_ad = allDice.slice();
@@ -286,6 +309,8 @@ Spieler.groses = function() {
 		this.groses = 40;
 		runde();
 		}  
+};
+var groses = function(){
 };
 var runde = function(){
 	runden +=1;

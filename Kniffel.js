@@ -1,7 +1,68 @@
 var counter = 0;
 var runden = 1;
 var allDice = [0, 0, 0, 0, 0];
-var points = [];
+var points = [[0,0,0,0,0,0],[]];
+
+/* Konstruktor Spieler*/
+var Spieler1 = new Spieler;
+function Spieler(number, name)
+{
+	this.Name=name;
+	this.number=number;
+	this.one=0;
+	this.two=0;
+	this.three=0;
+	this.four=0;
+	this.five=0;
+	this.six=0;
+	this.zwsumme=0;
+	this.bonus=35;
+	this.summe=0;
+	this.chance=0;
+	this.dreierp=0;
+	this.fullHouse=0;
+	this.groses=0;
+	this.kleines=0;
+	this.kniffel=0;
+	this.viererp=0;
+	this.summe_g=0;
+}
+Spieler.calc = function (){
+	this.zwsumme=this.one+this.two+this.three+this.four+
+	this.five+this.six;
+	if(this.zwsumme >= 63)
+	{
+		this.summe=this.bonus+this.zwsumme;
+	}
+	else {
+		this.summe = this.zwsumme;
+	}
+	this.summe_g=this.summe+this.bonus+this.chance+this.dreierp+
+	this.fullHouse+this.groses+this.kleines+this.kniffel+
+	this.viererp;
+}
+Spieler.writeToHTML = function() {
+	
+	changeText("p"+this.number+"_one",this.one);
+	this.two=0;
+	this.three=0;
+	this.four=0;
+	this.five=0;
+	this.six=0;
+	this.zwsumme=0;
+	this.bonus=35;
+	this.summe=0;
+	this.chance=0;
+	this.dreierp=0;
+	this.fullHouse=0;
+	this.groses=0;
+	this.kleines=0;
+	this.kniffel=0;
+	this.viererp=0;
+	this.summe_g=0;
+}
+
+
 var wurf = function() {
     if(counter<3){
 		for(i=0;i<5;i++){
@@ -225,12 +286,12 @@ var runde = function(){
 	runden +=1;
 	counter = 0;
 	allDice = [0, 0, 0, 0, 0];
-	
+	uncheckAll();
 };
 
 function uncheckAll()
 {
-for (i = 0; i < document.dice.list.length; i++)
-	document.dice.list[i].checked = false ;
+for (i = 0; i < document.dice.wuerfel.length; i++)
+	document.dice.wuerfel[i].checked = false ;
 }
 

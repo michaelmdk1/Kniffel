@@ -125,7 +125,7 @@
     
     
     </table>
-    <form name="dice">
+    
     <table>
 		<tr> 
 			<td><b id='dice1'></b></td>
@@ -137,16 +137,18 @@
 			<td>Runde</td>
 			
 		</tr>
-		<tr><td><input type="checkbox" name="wuerfel" value="eins"></td>
+		<tr><form name="dice">
+			<td><input type="checkbox" name="wuerfel" value="eins"></td>
 		    <td><input type="checkbox" name="wuerfel" value="zwei"></td>
 		    <td><input type="checkbox" name="wuerfel" value="drei"></td>
 		    <td><input type="checkbox" name="wuerfel" value="vier"></td>
 		    <td><input type="checkbox" name="wuerfel" value="fünf"></td>
+		    </form>
 		    <td><input type="button"   value="wurf" id="btn1" onclick="wurf();"/></td>
 		    <td><b id='runden'></b></td>
 		</tr>
     
-</table></form>
+</table>
 <b id='fehler'>no error</b>
 </body>
 </html>

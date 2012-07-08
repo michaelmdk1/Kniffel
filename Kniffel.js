@@ -9,7 +9,7 @@ $( document ).delegate("#select", "pageinit", function() {
 	console.log("init-select");
 	console.log(spielerArray[aktiverSpieler].Name);
 	changeText("names",spielerArray[aktiverSpieler].Name);
-	
+	showNumbers();
 	spielerArray[aktiverSpieler].writeToHTML();
 });
 
@@ -19,6 +19,14 @@ $( document ).delegate("#diceroll", "pageinit", function(){
 	schreibeName();
 	});
 
+
+var showNumbers = function() {
+     var suchZahl = 5;
+     var zahl = 0;
+     for(i=0;i<5;i++){
+		changeText("zahl"+(i+1),allDice[i]);
+	 }     
+};
 /* Klasse Spieler*/
 function Spieler(number, name)
 {

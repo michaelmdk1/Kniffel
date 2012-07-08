@@ -41,15 +41,17 @@ var read = function() {
 	for(i=0; i<anzahlSpieler;i++){
 			console.log(spielerArray[i].Name);
 	}
-	$.mobile.changePage( "diceroll.html", { transition: "slideup"} );
+	$.mobile.changePage( "diceroll.html", { transition: "flip"} );
 };
 
 var showNumbers = function() {
-     var suchZahl = 5;
-     var zahl = 0;
-     for(i=0;i<5;i++){
+
+       //var new_ad = allDice.slice();
+		//new_ad.sort();
+	allDice.sort();
+    for(i=0;i<5;i++){
 		changeText("zahl"+(i+1),allDice[i]);
-	 }     
+	}     
 };
 
 /* Klasse Spieler*/
@@ -345,9 +347,9 @@ var wurf = function() {
 		   changeText("counter", counter);
 		   changeText("runden", runden);
    }
-   else {
-	   changeText("fehler", "Maximale Würfe erreicht");
-   }
+	if(counter>=3){
+		$.mobile.changePage( "select.html", { transition: "flip"} );
+	}
 };
 var changeText = function(id, text){
 	console.log("Die id ist :"+ id);
@@ -364,7 +366,7 @@ var move = function(){
 	//document.getElementById(aktiverSpieler).style.backgroundColor = "#FF9933";
 	changeText("fehler", "");
 	counter=0;
-	$.mobile.changePage( "diceroll.html", { transition: "slideup"} );
+	$.mobile.changePage( "diceroll.html", { transition: "flip"} );
 };
 
 var schreibeName = function(){
@@ -512,6 +514,6 @@ function spieleranzahl_lesen(){
 		spielerArray[i].calc();
 		//spielerArray[i].writeToHTML(); //Hat ja noch keine Zahlen drin
 	}
-	$.mobile.changePage( "names.html", { transition: "slideup"} );
+	$.mobile.changePage( "names.html", { transition: "flip"} );
 };
 

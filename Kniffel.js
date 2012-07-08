@@ -5,6 +5,19 @@ var anzahlSpieler = 0;
 var spielerArray =new Array();
 var aktiverSpieler = 0;
 
+$( document ).delegate("#select", "pageinit", function() {
+	console.log("init-select");
+	console.log(spielerArray[aktiverSpieler].Name);
+	changeText("names",spielerArray[aktiverSpieler].Name);
+	
+	spielerArray[aktiverSpieler].writeToHTML();
+});
+
+$( document ).delegate("#diceroll", "pageinit", function(){
+	console.log("init-diceroll");
+	counter=0;
+	schreibeName();
+	});
 
 /* Klasse Spieler*/
 function Spieler(number, name)
@@ -70,6 +83,7 @@ function Spieler(number, name)
 		}
 		this.summe_g=this.summe+this.chance+this.dreierp+this.fullHouse+this.groses+this.kleines+this.kniffel+this.viererp;
 	}
+	
 	
 	this.setOne = function() {
 		 var suchZahl = 1;
@@ -316,17 +330,17 @@ var move = function(){
 	}
 	//document.getElementById(aktiverSpieler).style.backgroundColor = "#FF9933";
 	changeText("fehler", "");
-	
+	$.mobile.changePage( "diceroll.html", { transition: "slideup"} );
 };
 
 var saveName = function(){
 	spielerArray[aktiverSpieler].Name = document.getElementById("playername").value;
-   console.log(spielerArray[aktiverSpieler].Name);
    schreibeName();
 }
 
 var schreibeName = function(){
 	changeText("name",spielerArray[aktiverSpieler].Name);
+	console.log(spielerArray[aktiverSpieler].Name);
 }
 	
 var one = function(){
@@ -469,5 +483,6 @@ function spieleranzahl_lesen(){
 		spielerArray[i].calc();
 		//spielerArray[i].writeToHTML(); //Hat ja noch keine Zahlen drin
 	}
+	$.mobile.changePage( "diceroll.html", { transition: "slideup"} );
 }
 

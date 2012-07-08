@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<!--<link rel="stylesheet" type="text/css" href="kniffel.css">-->
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
@@ -13,145 +13,25 @@
     
 </head>
 <body>
-    <h1>Kniffel</h1>
-    <h2>Spieleinstellungen</h2>
-    <table>
-		<tr>
-			<td><input type="number" name="Spieleranzahl" value="Spieleranzahl eingeben" id="spieleranzahl"/></td>
-			<td><input type="button"   value="OK" id="spieleranzahl_ok" onclick="spieleranzahl_lesen();"/></td>
-		</tr>
-	</table>
-    <h2>Spiel</h2>
-    <table>
-		<colgroup>
-			<col >
-			<col id=0>
-	    </colgroup>
-		<tr>
-			<th></th>
-			<th><input type="text" value="Spieler1" id="Spieler1"</th>
-		</tr>
-		<tr>
-			<td>1</td>
-			<td><b id='p_one'></b></td>
-			<td><input type="button"   value="Einser" id="btn_value_1" onclick="one();"/></td>
-		</tr>
-		<tr>
-			<td>2</td>
-			<td><b id='p_two'></b></td>
-			<td><input type="button"   value="Zweier" id="btn_value_2" onclick="two();"/></td>
-		</tr>
-		<tr>
-			<td>3</td>
-			<td><b id='p_three'></b></td>
-			<td><input type="button"   value="Dreier" id="btn_value_3" onclick="three();"/></td>
-		</tr>
-		<tr>
-			<td>4</td>
-			<td><b id='p_four'></b></td>
-			<td><input type="button"   value="Vierer" id="btn_value_4" onclick="four();"/></td>
-		</tr>
-		<tr>
-			<td>5</td>
-			<td><b id='p_five'></b></td>
-
-			<td><input type="button"   value="Fünfer" id="btn_value_5" onclick="five();"/></td>
-		</tr>
-		<tr>
-			<td>6</td>
-			<td><b id='p_six'></b></td>
-			<td><input type="button"   value="Sechser" id="btn_value_6" onclick="six();"/></td>
-		</tr>
-		<tr>
-			<td>ZwSumme</td>
-			<td><b id='p_zwSumme'></b></td>
-		</tr>
-		<tr>
-			<td>Bonus</td>
-			<td><b id='p_bonus'></b></td>
-		</tr>
-		<tr>
-			<td>Summe</td>
-			<td><b id='p_summe'></b></td>
-		</tr>
-		<tr>
-			<td>Dreierpasch</td>
-			<td><b id='p_dreierp'></b></td>
-			<td><input type="button"   value="Dreierpasch" id="btn_value_7" onclick="dreierp();"/></td>
-		</tr>
-		<tr>
-			<td>Viererpasch</td>
-			<td><b id='p_viererp'></b></td>
-			<td><input type="button"   value="Viererpasch" id="btn_value_8" onclick="viererp();"/></td>
-		</tr>
-		<tr>
-			<td>Fullhouse</td>
-			<td><b id='p_fullHouse'></b></td>
-			<td><input type="button"   value="Fullhouse" id="btn_value_9" onclick="fullHouse();"/></td>
-		</tr>
-		<tr>
-			<td>Kniffel</td>
-			<td><b id='p_kniffel'></b></td>
-			<td><input type="button"   value="Kniffel" id="btn_value_10" onclick="kniffel();"/></td>
-		</tr>
-		<tr>
-			<td>Chance</td>
-			<td><b id='p_chance'></b></td>
-			<td><input type="button"   value="Chance" id="btn_value_11" onclick="chance();"/></td>
-		</tr>
-		<tr>
-			<td>kleine Straße</td>
-			<td><b id='p_kleines'></b></td>
-			<td><input type="button"   value="kl. Straße" id="btn_value_12" onclick="kleines();"/></td>
-		</tr>
-		<tr>
-			<td>große Straße</td>
-			<td><b id='p_groses'></b></td>
-			<td><input type="button"   value="gr. Straße" id="btn_value_13" onclick="groses();"/></td>
-		</tr>
-		<tr>
-			<td>Gesamtsumme</td>
-			<td><b id='p_summe_g'></b></td>
-		</tr>
-		<tr>
-			<td>Platz</td>
-			<td></td>
-			<td></td>
-		</tr>
-    
-    
-    
-    </table>
-    
-    <table>
-		<tr><td>Würfel1</td>
-		    <td>Würfel2</td>
-		    <td>Würfel3</td>
-		    <td>Würfel4</td>
-		    <td>Würfel5</td>
-		    <td>Wurf</td>
-		    <td>Runde</td>
-		</tr>    
-		<tr>
-			<td><b id='dice1'></b></td>
-			<td><b id='dice2'></b></td>
-			<td><b id='dice3'></b></td>
-			<td><b id='dice4'></b></td>
-			<td><b id='dice5'></b></td>
-			<td><b id='counter'></b></td>
-			<td><b id='runden'></b></td>
-		</tr>
-		<tr><form name="dice">
-			<td><input type="checkbox" name="wuerfel" value="eins"></td>
-		    <td><input type="checkbox" name="wuerfel" value="zwei"></td>
-		    <td><input type="checkbox" name="wuerfel" value="drei"></td>
-		    <td><input type="checkbox" name="wuerfel" value="vier"></td>
-		    <td><input type="checkbox" name="wuerfel" value="fünf"></td>
-		    </form>
-		    <td><input type="button"   value="Würfeln" id="btn1" onclick="wurf();"/></td>
-		</tr>
-    
-</table>
-<b id='fehler'>no error</b>
+	<div data-role="page" id="start" data-theme="b">
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<h1>Kniffel</h1>
+		</div>
+		<div data-role="content">
+			<label for="basic1">Spieleranzahl:</label>
+			<input type="number" name="numberofplayers" id="numberofplayers" value="" placeholder="Zahl zwischen  1 und 5" />
+			<button onclick="spieleranzahl_lesen();">OK</button>
+		</div>
+		
+		<div data-role="footer" data-position="fixed" data-id="persFooter">
+			<div data-role="navbar">
+				<ul>
+					<li> <a href="Kniffel.html" data-icon="home">Start</a></li>
+					<li> <a href="diceroll.html" data-icon="gear">Würfeln</a></li>
+					<li> <a href="select.html" data-icon="info">Auswählen</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

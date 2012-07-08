@@ -32,31 +32,32 @@ function Spieler(number, name)
 	this.writeToHTML = function() {
 		if(this.one!=0) 
 			{
-				changeText("p_one",this.one);
+				changeText("one",this.one);
 			} 
 			else 
 			{
-				changeText("p_one","");
+				changeText("one","");
 			}
-		if(this.two!=0) changeText("p_two",this.two);
-		if(this.three!=0) changeText("p_three",this.three);
-		if(this.four!=0) changeText("p_four",this.four);
-		if(this.five!=0) changeText("p_five",this.five);
-		if(this.six!=0) changeText("p_six",this.six);
-		if(this.zwsumme!=0) changeText("p_zwSumme",this.zwsumme);
+		if(this.two!=0) changeText("2",this.two);
+		if(this.three!=0) changeText("3",this.three);
+		if(this.four!=0) changeText("4",this.four);
+		if(this.five!=0) changeText("5",this.five);
+		if(this.six!=0) changeText("6",this.six);
+		if(this.zwsumme!=0) changeText("zwSum",this.zwsumme);
 		if(this.zwsumme >=63){
-			changeText("p_bonus",this.bonus);
+			changeText("bonus",this.bonus);
 		}
-		if(this.summe!=0) changeText("p_summe",this.summe);
-		if(this.dreierp!=0) changeText("p_dreierp",this.dreierp);
-		if(this.viererp!=0) changeText("p_viererp",this.viererp);
-		if(this.chance!=0) changeText("p_chance",this.chance);
-		if(this.fullHouse!=0) changeText("p_fullHouse",this.fullHouse);
-		if(this.groses!=0) changeText("p_groses",this.groses);
-		if(this.kleines!=0) changeText("p_kleines",this.kleines);
-		if(this.kniffel!=0) changeText("p_kniffel",this.kniffel);
-		if(this.summe_g!=0) changeText("p_summe_g",this.summe_g);
+		if(this.summe!=0) changeText("sum",this.summe);
+		if(this.dreierp!=0) changeText("dp",this.dreierp);
+		if(this.viererp!=0) changeText("vp",this.viererp);
+		if(this.chance!=0) changeText("ch",this.chance);
+		if(this.fullHouse!=0) changeText("fh",this.fullHouse);
+		if(this.groses!=0) changeText("gr",this.groses);
+		if(this.kleines!=0) changeText("kl",this.kleines);
+		if(this.kniffel!=0) changeText("kn",this.kniffel);
+		if(this.summe_g!=0) changeText("gSum",this.summe_g);
 	}
+	
 	
 	this.calc = function (){
 		this.zwsumme=this.one+this.two+this.three+this.four+this.five+this.six;
@@ -79,7 +80,7 @@ function Spieler(number, name)
 			}
 		 }
 		 this.one = zahl;
-		 zug();
+		 //zug();
 	};
 	
 	this.setTwo = function() {
@@ -91,7 +92,7 @@ function Spieler(number, name)
 			}
 		 }
 		 this.two = zahl;
-		 zug();    
+		 //zug();    
 	};
 	
 	this.setThree = function() {
@@ -103,7 +104,7 @@ function Spieler(number, name)
 			}
 		 }
 		 this.three = zahl;
-		 zug();       
+		 //zug();       
 	};
 	
 	this.setFour = function() {
@@ -115,7 +116,7 @@ function Spieler(number, name)
 		}
 	 }
 	 this.four = zahl;
-	 zug();       
+	 //zug();       
 };
 	
 	this.setFive = function() {
@@ -127,7 +128,7 @@ function Spieler(number, name)
 		}
 	 }
 	 this.five = zahl;
-	 zug();       
+	 //zug();       
 };
 	
 	this.setSix = function() {
@@ -139,7 +140,7 @@ function Spieler(number, name)
 		}
 	 }
 	 this.six = zahl;
-	 zug();       
+	 //zug();       
 };
 	
 	this.setDreierp = function() {
@@ -156,7 +157,7 @@ function Spieler(number, name)
 			  augen += allDice[k];
 		  }
 		  this.dreierp = augen;
-		  zug();
+		  //zug();
 		  return;
 	     }
 	     else {
@@ -179,7 +180,7 @@ function Spieler(number, name)
 				  augen += allDice[k];
 			  }
 			  this.viererp = augen;
-			  zug();
+			  //zug();
 			  return;
 			 }
 			 else {
@@ -204,7 +205,7 @@ function Spieler(number, name)
 				 }
 				if(zaehler2===2){
 					this.fullHouse = 25;
-					zug();
+					//zug();
 					return;
 				}
 			 }
@@ -225,7 +226,7 @@ function Spieler(number, name)
 			 }
 			 if(zaehler===5){
 			  this.kniffel += 50;
-			  zug();
+			  //zug();
 			  return;
 			 }
 			 else {
@@ -240,7 +241,7 @@ function Spieler(number, name)
 				  augen += allDice[k];
 			  }
 			  this.chance = augen;
-			  zug();
+			  //zug();
 	};
 
 	this.setKleines = function() {
@@ -257,7 +258,7 @@ function Spieler(number, name)
 			}
 		if(count >= 3){
 			this.kleines = 30;
-			zug();
+			//zug();
 			} 
 	};
 	
@@ -275,19 +276,23 @@ function Spieler(number, name)
 		}
 	if(count === 4){
 		this.groses = 40;
-		zug();
+		//zug();
 		}  
 	};
 	
 }
 
 var wurf = function() {
+	if(counter === 0){
+		uncheckAll();
+	}
     if(counter<3){
 		for(i=0;i<5;i++){
-			if(!document.dice.elements[i].checked){
+			if(document.getElementById("on-off-slider"+(i+1)).value==="on"){
 				allDice[i] = Math.floor(Math.random()*6+1);
 				}
-			changeText("dice"+(i+1),allDice[i]);
+			document.getElementById("dice"+(i+1)).value=allDice[i];
+			//changeText("dice"+(i+1),allDice[i]);
 		   }
 		   counter +=1;
 		   changeText("counter", counter);
@@ -298,6 +303,7 @@ var wurf = function() {
    }
 };
 var changeText = function(id, text){
+	console.log("Die id ist :"+ id);
 	document.getElementById(id).innerHTML=text;
 };
 
@@ -312,6 +318,16 @@ var move = function(){
 	changeText("fehler", "");
 	
 };
+
+var saveName = function(){
+	spielerArray[aktiverSpieler].Name = document.getElementById("playername").value;
+   console.log(spielerArray[aktiverSpieler].Name);
+   schreibeName();
+}
+
+var schreibeName = function(){
+	changeText("name",spielerArray[aktiverSpieler].Name);
+}
 	
 var one = function(){
 	if(spielerArray[aktiverSpieler].one <= 0){
@@ -434,23 +450,24 @@ var zug = function(){
 		   changeText("dice"+(i+1),allDice[i]);
 		   }
 		   changeText("counter", counter);
-	uncheckAll();
 };
 
 function uncheckAll()
 {
-for (i = 0; i < document.dice.wuerfel.length; i++)
-	document.dice.wuerfel[i].checked = false ;
+	for (i = 0; i < 5; i++){
+		//document.getElementById("on-off-slider"+(i+1)).value="on";
+		var myswitch = $("select");
+		myswitch[i].selectedIndex = 0;
+		myswitch.slider("refresh");	
+	}
 }
 function spieleranzahl_lesen(){
-	anzahlSpieler = document.getElementById('spieleranzahl').value;
+	anzahlSpieler = document.getElementById('numberofplayers').value;
 	console.log("Anzahl Spieler gesetzt: "+anzahlSpieler);
 	for(i=0; i < anzahlSpieler; i++){
-		spielerArray[i] = new Spieler(i+1,"testname");
+		spielerArray[i] = new Spieler(i+1,"Spieler "+(i+1));
 		spielerArray[i].calc();
 		//spielerArray[i].writeToHTML(); //Hat ja noch keine Zahlen drin
 	}
-	document.getElementById(aktiverSpieler).style.backgroundColor = "#FF6633";
-	
 }
 

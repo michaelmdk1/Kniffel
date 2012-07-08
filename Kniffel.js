@@ -15,8 +15,8 @@ $( document ).delegate("#select", "pageinit", function() {
 
 $( document ).delegate("#diceroll", "pageinit", function(){
 	console.log("init-diceroll");
-	counter=0;
 	schreibeName();
+	changeText("fehler", "");
 	});
 
 
@@ -338,6 +338,7 @@ var move = function(){
 	}
 	//document.getElementById(aktiverSpieler).style.backgroundColor = "#FF9933";
 	changeText("fehler", "");
+	counter=0;
 	$.mobile.changePage( "diceroll.html", { transition: "slideup"} );
 };
 

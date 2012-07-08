@@ -17,8 +17,32 @@ $( document ).delegate("#diceroll", "pageinit", function(){
 	console.log("init-diceroll");
 	schreibeName();
 	changeText("fehler", "");
-	});
+});
+	
+$( document ).delegate("#dienamen", "pageinit", function(){
+	console.log("init-namen");
+	writeNames();
+});
+	
+var writeNames = function() {
+	var text = '';
+	for(i=1;i<=anzahlSpieler;i++)
+	{
+		text += "<input type='text' id='player"+i+"' value='' placeholder='Bitte Namen eingeben' />";
+	}
+	console.log('Einzufügender Text: '+text);
+	$('#thenames').append(text);
+};
 
+var read = function() {
+	for(i=0; i<anzahlSpieler;i++){
+		spielerArray[i].Name=document.getElementById('player'+(i+1)).value;
+	}
+	for(i=0; i<anzahlSpieler;i++){
+			console.log(spielerArray[i].Name);
+	}
+	$.mobile.changePage( "diceroll.html", { transition: "slideup"} );
+};
 
 var showNumbers = function() {
      var suchZahl = 5;
@@ -27,6 +51,7 @@ var showNumbers = function() {
 		changeText("zahl"+(i+1),allDice[i]);
 	 }     
 };
+
 /* Klasse Spieler*/
 function Spieler(number, name)
 {
@@ -342,11 +367,6 @@ var move = function(){
 	$.mobile.changePage( "diceroll.html", { transition: "slideup"} );
 };
 
-var saveName = function(){
-	spielerArray[aktiverSpieler].Name = document.getElementById("playername").value;
-   schreibeName();
-}
-
 var schreibeName = function(){
 	changeText("name",spielerArray[aktiverSpieler].Name);
 	console.log(spielerArray[aktiverSpieler].Name);
@@ -483,7 +503,7 @@ function uncheckAll()
 		myswitch[i].selectedIndex = 0;
 		myswitch.slider("refresh");	
 	}
-}
+};
 function spieleranzahl_lesen(){
 	anzahlSpieler = document.getElementById('numberofplayers').value;
 	console.log("Anzahl Spieler gesetzt: "+anzahlSpieler);
@@ -492,6 +512,6 @@ function spieleranzahl_lesen(){
 		spielerArray[i].calc();
 		//spielerArray[i].writeToHTML(); //Hat ja noch keine Zahlen drin
 	}
-	$.mobile.changePage( "diceroll.html", { transition: "slideup"} );
-}
+	$.mobile.changePage( "names.html", { transition: "slideup"} );
+};
 

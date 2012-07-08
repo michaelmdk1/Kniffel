@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="de">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--<link rel="stylesheet" type="text/css" href="kniffel.css">-->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+<!--   <script src="Kniffel.js"></script> -->
+
+    <title>Kniffel</title>
+    
+</head>
+<body>
+	<div data-role="page" id="diceroll" data-theme="b">
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<h1 id="name"></h1>
+		</div>
+		
+		<div data-role="content">
+			<h2>Spiel</h2>
+			<input type="text" value="Spieler1" id="Spieler1" />
+			<fieldset class="ui-grid-a">
+				<div class="ui-block-a">
+					<p><b id='one'></b></p>
+				</div>
+				<div class="ui-block-b">
+					<button onclick="one();">Einser</button>
+				</div>
+				<div class="ui-block-a">
+					<p><b id="2"></b></p>
+				</div>
+				<div class="ui-block-b">
+					<button onclick="two();">Zweier</button>
+				</div>
+				<div class="ui-block-a">
+					<p><b id="3"></b></p>
+				</div>
+				<div class="ui-block-b">
+					<button onclick="three();">Dreier</button>
+				</div>
+				<div class="ui-block-a">
+					<p><b id="4"></b></p>
+				</div>
+				<div class="ui-block-b">
+					<button onclick="four();">Vierer</button>
+				</div>
+				<div class="ui-block-a">
+					<p><b id="5"></b></p>
+				</div>
+				<div class="ui-block-b">
+					<button onclick="five();">Fünfer</button>
+				</div>
+				<div class="ui-block-a">
+					<p><b id="6"></b></p>
+				</div>
+				<div class="ui-block-b">
+					<button onclick="six();">Sechser</button>
+				</div>
+				<div class="ui-block-a">
+					<p><b id="zwSum"></b></p>
+				</div>
+				<div class="ui-block-b">
+					<button>Zwischensumme</button>
+				</div>
+				<div class="ui-block-a">
+					<p><b id="bonus"></b></p>
+				</div>
+				<div class="ui-block-b">
+					<button>Bonus</button>
+				</div>
+				<div class="ui-block-a">
+					<p><b id="sum"></b></p>
+				</div>
+				<div class="ui-block-b">
+					<button>Summe</button>
+				</div>
+				<div class="ui-block-a">
+					<p><b id="dp"></b></p>
+				</div>
+				<div class="ui-block-b">
+					<button onclick="dreierp();">Dreierpasch</button>
+				</div>
+				<div class="ui-block-a">
+					<p><b id="vp"></b></p>
+				</div>
+				<div class="ui-block-b">
+					<button onclick="viererp();">Viererpasch</button>
+				</div>
+				<div class="ui-block-a">
+					<p><b id="fh"></b></p>
+				</div>
+				<div class="ui-block-b">
+					<button onclick="fullHouse();">Full House</button>
+				</div>
+				<div class="ui-block-a">
+					<p><b id="kn"></b></p>
+				</div>
+				<div class="ui-block-b">
+					<button onclick="kniffel();">Kniffel</button>
+				</div>
+				<div class="ui-block-a">
+					<p><b id="ch"></b></p>
+				</div>
+				<div class="ui-block-b">
+					<button onclick="chance();">Chance</button>
+				</div>
+				<div class="ui-block-a">
+					<p><b id="kl"></b></p>
+				</div>
+				<div class="ui-block-b">
+					<button onclick="kleines();">Kleine Straße</button>
+				</div>
+				<div class="ui-block-a">
+					<p><b id="gr"></b></p>
+				</div>
+				<div class="ui-block-b">
+					<button onclick="groses();">Große Straße</button>
+				</div>
+				<div class="ui-block-a">
+					<p><b id="gSum"></b></p>
+				</div>
+				<div class="ui-block-b">
+					<button>Gesamtsumme</button>
+				</div>
+					  
+			</fieldset>
+			<br>Fehler: </br>
+					<b id='fehler'>no error</b>
+		</div>		
+
+		<div data-role="footer" data-position="fixed" data-id="persFooter">
+			<div data-role="navbar">
+				<ul>
+					<li> <a href="Kniffel.html" data-icon="home">Start</a></li>
+					<li> <a href="diceroll.html" data-icon="gear">Würfeln</a></li>
+					<li> <a href="select.html" data-icon="info">Auswählen</a></li>
+				</ul>
+			</div>
+		</div>
+		
+	</div>
+</body>
+</html>

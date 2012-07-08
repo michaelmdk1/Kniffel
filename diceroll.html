@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--<link rel="stylesheet" type="text/css" href="kniffel.css">-->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+	<script src="Kniffel.js"></script> -->
+
+    <title>Kniffel</title>
+    
+</head>
+<body>
+	<div data-role="page" id="diceroll" data-theme="b">
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<h1 id="name"></h1>
+		</div>
+		
+		<div data-role="content">
+			
+			<fieldset class="ui-grid-a">
+				<div class="ui-block-a"><input type="text" name="dice" id="dice1" value="" /></div>
+				<div class="ui-block-b">
+					<select data-role="slider" id="on-off-slider1">
+						<option value="on">würfeln</option>
+						<option value="off">fest</option>
+					</select>
+				</div>
+				<div class="ui-block-a"><input type="text" name="dice" id="dice2" value="" /></div>
+				<div class="ui-block-b">
+					<select data-role="slider" id="on-off-slider2">
+						<option value="on">würfeln</option>
+						<option value="off">fest</option>
+					</select>
+				</div>	
+				<div class="ui-block-a"><input type="text" name="dice" id="dice3" value="" /></div>
+				<div class="ui-block-b">
+					<select data-role="slider" id="on-off-slider3">
+						<option value="on">würfeln</option>
+						<option value="off">fest</option>
+					</select>
+				</div>
+				<div class="ui-block-a"><input type="text" name="dice" id="dice4" value="" /></div>
+				<div class="ui-block-b">
+					<select data-role="slider" id="on-off-slider4">
+						<option value="on">würfeln</option>
+						<option value="off">fest</option>
+					</select>
+				</div>
+				<div class="ui-block-a"><input type="text" name="dice" id="dice5" value="" /></div>
+				<div class="ui-block-b">
+					<select data-role="slider" id="on-off-slider5">
+						<option value="on">würfeln</option>
+						<option value="off">fest</option>
+					</select>
+				</div>
+			</fieldset>  
+
+			<button onclick="wurf();">Würfeln</button>
+			
+			Wurf
+			<b id='counter'></b>
+			Runde
+			<b id='runden'></b>
+			Fehler: 
+			<b id='fehler'>no error</b>
+			
+			<fieldset class="ui-grid-a">
+				<div class="ui-block-a">
+					<input type="text" id="playername" value="Spieler 1"/>
+				</div>
+				<div class="ui-block-b">
+					<button onclick="saveName();">Name Speichern</button>
+				</div>
+			</fieldset>
+		</div>		
+		
+		<div data-role="footer" data-position="fixed" data-id="persFooter">
+			<div data-role="navbar">
+				<ul>
+					<li> <a href="Kniffel.html" data-icon="home">Start</a></li>
+					<li> <a href="diceroll.html" data-icon="gear">Würfeln</a></li>
+					<li> <a href="select.html" data-icon="info">Auswählen</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

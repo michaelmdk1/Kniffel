@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="de">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--<link rel="stylesheet" type="text/css" href="kniffel.css">-->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+    <script src="Kniffel.js"></script>
+    <title>Kniffel</title>
+    
+</head>
+<body>
+	<div data-role="page" id="dienamen" data-theme="b">
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<h1>Namen</h1>
+		</div>
+		<div data-role="content">
+			<label for="basic1">Namen eingeben:</label>
+			<p id="thenames"></p>
+			<button onclick="read();">OK</button>
+		</div>
+		
+		<div data-role="footer" data-position="fixed" data-id="persFooter">
+			<div data-role="navbar">
+				<ul>
+					<li> <a href="diceroll.html" data-icon="gear">Würfeln</a></li>
+					<li> <a href="select.html" data-icon="info">Auswählen</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

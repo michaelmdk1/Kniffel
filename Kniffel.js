@@ -23,6 +23,60 @@ $( document ).delegate("#dienamen", "pageinit", function(){
 	console.log("init-namen");
 	writeNames();
 });
+
+$( document ).delegate("#ergebnis", "pageinit", function(){
+	console.log("init-ergebnis");
+    writeErgebnis();
+});
+
+var writeErgebnis = function() {
+    var text = ['<table><tr><th></th>',
+                '</tr><tr><td>1er</td>',
+                '</tr><tr><td>2er</td>',
+                '</tr><tr><td>3er</td>',
+                '</tr><tr><td>4er</td>',
+                '</tr><tr><td>5er</td>',
+                '</tr><tr><td>6er</td>',
+                '</tr><tr><td>ZwSumme</td>',
+                '</tr><tr><td>drPasch</td>',
+                '</tr><tr><td>viPasch</td>',
+                '</tr><tr><td>Chance</td>',
+                '</tr><tr><td>Full House</td>',
+                '</tr><tr><td>Kniffel</td>',
+                '</tr><tr><td>Kleine Straße</td>',
+                '</tr><tr><td>Große Straße</td>',
+                '</tr><tr><td>Summe</td>'];
+                
+    var text_add = new Array();
+    for(i=0;i<16;i++){
+        text_add[i] = "";
+    }
+	for(i=0;i<anzahlSpieler;i++)
+	{
+        text_add[0]+='<th>'+spielerArray[i].Name+'</th>';
+        text_add[1]+='<td>'+spielerArray[i].one+'</td>';
+        text_add[2]+='<td>'+spielerArray[i].two+'</td>';
+        text_add[3]+='<td>'+spielerArray[i].three+'</td>';
+        text_add[4]+='<td>'+spielerArray[i].four+'</td>';
+        text_add[5]+='<td>'+spielerArray[i].five+'</td>';
+        text_add[6]+='<td>'+spielerArray[i].six+'</td>';
+        text_add[7]+='<td>'+spielerArray[i].summe+'</td>';
+        text_add[8]+='<td>'+spielerArray[i].dreierp+'</td>';
+        text_add[9]+='<td>'+spielerArray[i].viererp+'</td>';
+        text_add[10]+='<td>'+spielerArray[i].chance+'</td>';
+        text_add[11]+='<td>'+spielerArray[i].fullHouse+'</td>';
+        text_add[12]+='<td>'+spielerArray[i].kniffel+'</td>';
+        text_add[13]+='<td>'+spielerArray[i].kleines+'</td>';
+        text_add[14]+='<td>'+spielerArray[i].groses+'</td>';
+        text_add[15]+='<td>'+spielerArray[i].summe_g+'</td>';
+	}
+    var text_all = "";
+    for(i=0;i<16;i++){
+        text_all += text[i]+text_add[i];
+    } 
+	console.log('Einzufügender Text: '+text_all);
+	$('#ergebnis_add').append(text);
+}
 	
 var writeNames = function() {
 	var text = '';
@@ -363,6 +417,9 @@ var move = function(){
 		aktiverSpieler=0;
 		runden++;
 	}
+    if(runden >= 13){
+        $.mobile.changePage( "ergebnis.html", { transition: "flip"} );
+    }
 	//document.getElementById(aktiverSpieler).style.backgroundColor = "#FF9933";
 	changeText("fehler", "");
 	counter=0;

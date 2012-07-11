@@ -75,7 +75,7 @@ var writeErgebnis = function() {
         text_all += text[i]+text_add[i];
     } 
 	console.log('Einzufügender Text: '+text_all);
-	$('#ergebnis_add').append(text);
+	$('#ergebnis_add').append(text_all);
 }
 	
 var writeNames = function() {

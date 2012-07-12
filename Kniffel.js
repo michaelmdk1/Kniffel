@@ -4,7 +4,7 @@ var allDice = [0, 0, 0, 0, 0];
 var anzahlSpieler = 0;
 var spielerArray =new Array();
 var aktiverSpieler = 0;
-var ende = 13; //used in move und ergebnis.html load
+var ende = 14; //used in move und ergebnis.html load
 
 $( document ).delegate("#select", "pageinit", function() {
 	console.log("init-select");

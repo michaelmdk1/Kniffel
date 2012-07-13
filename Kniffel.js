@@ -263,15 +263,15 @@ function Spieler(number, name)
 			 }
 		 }
 		 if(zaehler>=3){
-		  for(k=0;k<5;k++){
-			  augen += allDice[k];
-		  }
-		  this.dreierp = augen;
-		  //zug();
-		  return;
-	     }
-	     else {
-		      zaehler = 0;
+		 	for(k=0;k<5;k++){
+				augen += allDice[k];
+		  	}
+		  	this.dreierp = augen;
+		  	//zug();
+		  	return;
+	     	}
+	     	else {
+			zaehler = 0;
 		 }	 
 	 }       
 };
@@ -286,15 +286,15 @@ function Spieler(number, name)
 				 }
 			 }
 			 if(zaehler>=4){
-			  for(k=0;k<5;k++){
-				  augen += allDice[k];
-			  }
-			  this.viererp = augen;
-			  //zug();
-			  return;
+			 	for(k=0;k<5;k++){
+					augen += allDice[k];
+			  	}
+			 this.viererp = augen;
+			 //zug();
+			 return;
 			 }
 			 else {
-				  zaehler = 0;
+				zaehler = 0;
 			 }	 
 		 }              
 	};
